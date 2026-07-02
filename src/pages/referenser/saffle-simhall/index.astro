@@ -259,7 +259,7 @@ import "../../../styles/avab.css";
     </div>
   </section>
 
-  <div class="trust-strip">
+  <section class="fact-band" aria-label="Projektfakta">
     <div class="avab-container">
       <div class="fact-strip">
         <div class="fact"><span>Beställare</span><strong>Assemblin El AB</strong></div>
@@ -269,7 +269,7 @@ import "../../../styles/avab.css";
         <div class="fact"><span>AVAB:s uppdrag</span><strong>Projektering, installation &amp; driftsättning</strong></div>
       </div>
     </div>
-  </div>
+  </section>
 
   <main id="main">
 
@@ -615,7 +615,8 @@ import "../../../styles/avab.css";
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const year = document.getElementById('year');
+    if (year) year.textContent = String(new Date().getFullYear());
   </script>
 </body>
 </html>

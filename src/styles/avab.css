@@ -768,38 +768,6 @@ p {
   margin-right: 8px;
 }
 
-.trust-strip {
-  background: var(--avab-light);
-  padding: 32px 0;
-  border-bottom: 1px solid var(--avab-border);
-}
-.trust-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-}
-.trust-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
-  background: var(--avab-white);
-  border: 1px solid var(--avab-border);
-  border-radius: 999px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--avab-dark);
-  box-shadow: var(--avab-shadow-sm);
-  white-space: nowrap;
-}
-.trust-item::before {
-  content: "✓";
-  color: var(--avab-green);
-  font-weight: 800;
-}
-
-
 /* ---- 10. Knappar ----------------------------------------- */
 .button {
   display: inline-flex;
@@ -1311,9 +1279,7 @@ details.faq-item p {
   .hero-actions .button,
   .cta-actions .button { width: 100%; }
 
-  .procurement-container,
-  .trust-container { gap: 12px; }
-  .trust-item { white-space: normal; }
+  .procurement-container { gap: 12px; }
 
   .grid-3 { grid-template-columns: 1fr; }
 

@@ -429,15 +429,6 @@ const { title = "Köpcentrum & galleria | Ljud, signage, LED & kameraövervaknin
     </div>
   </div>
 
-  <div class="trust-strip">
-    <div class="avab-container trust-container">
-      <div class="trust-item">Projektering, installation och driftsättning</div>
-      <div class="trust-item">Kameraövervakning med certifiering och funktionskontroll</div>
-      <div class="trust-item">Underlag för FFU, AB 04 och ABT 06</div>
-      <div class="trust-item">Erfarenhet från handel och publika miljöer</div>
-    </div>
-  </div>
-
   <main id="main">
     <section class="section section--light" id="kort-svar">
       <div class="avab-container two-col">
@@ -835,7 +826,8 @@ const { title = "Köpcentrum & galleria | Ljud, signage, LED & kameraövervaknin
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const year = document.getElementById('year');
+    if (year) year.textContent = String(new Date().getFullYear());
   </script>
 </body>
 </html>

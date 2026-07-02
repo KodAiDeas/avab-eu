@@ -1,4 +1,5 @@
 ﻿---
+import SiteFooter from "../../../components/SiteFooter.astro";
 import SiteHeader from "../../../components/SiteHeader.astro";
 import "../../../styles/avab.css";
 ---
@@ -337,14 +338,18 @@ import "../../../styles/avab.css";
     </div>
   </div>
 
-  <div class="trust-strip">
-    <div class="avab-container trust-container">
-      <div class="trust-item">Projektering, installation och driftsättning</div>
-      <div class="trust-item">IP-klassade och korrosionsanpassade material</div>
-      <div class="trust-item">Underlag för FFU, AB 04 och ABT 06</div>
-      <div class="trust-item">Erfarenhet från Säffle, Årjäng och publika badmiljöer</div>
+
+  <section class="fact-band" aria-label="Snabbfakta simhall">
+    <div class="fact-grid">
+      <div class="fact"><span>Miljö</span><strong>Simhall &amp; badhus</strong></div>
+      <div class="fact"><span>Ljud</span><strong>Tal, utrop och musik</strong></div>
+      <div class="fact"><span>Material</span><strong>IP-klassat och fukttåligt</strong></div>
+      <div class="fact"><span>Tillgänglighet</span><strong>Hörslinga och STI</strong></div>
+      <div class="fact"><span>Underlag</span><strong>FFU, AB 04 och ABT 06</strong></div>
+      <div class="fact"><span>Leverans</span><strong>Projektering till drift</strong></div>
     </div>
-  </div>
+  </section>
+
 
   <main id="main">
     <section class="section section--light" id="far-du">
@@ -434,7 +439,7 @@ import "../../../styles/avab.css";
             <div class="ref-content">
               <h3>Tävling, publik och hörslinga</h3>
               <p>Vid tävlingar, upprop och prisutdelningar behöver information nå alla. Vi planerar taluppfattbarhet, speakerljud, läktare, hörslinga och tillgänglighet från början.</p>
-              <a href="/horslinga/">Läs om hörslinga</a>
+              <a href="/tjanster/horslinga/">Läs om hörslinga</a>
             </div>
           </article>
 
@@ -443,7 +448,7 @@ import "../../../styles/avab.css";
             <div class="ref-content">
               <h3>Spa, relax och ljus</h3>
               <p>Crestron, KNX och DMX kan styra ljudzoner, RGB-belysning under vatten, scenarion i relax, start av bastu, temperatur och andra funktioner som personalen ska hantera enkelt.</p>
-              <a href="/styrsystem/">Läs om styrsystem</a>
+              <a href="/referenser/saffle-simhall/">Se styrning i referensprojekt</a>
             </div>
           </article>
 
@@ -452,7 +457,7 @@ import "../../../styles/avab.css";
             <div class="ref-content">
               <h3>Infoskärmar och drift</h3>
               <p>Skärmar kan visa tider, tävlingsinformation, öppettider, säkerhetsmeddelanden och driftdata. Mätvärden som klorhalt och temperatur kan visualiseras där det skapar nytta.</p>
-              <a href="/digital-signage/">Läs om infoskärmar</a>
+              <a href="/kontakt/">Prata med oss om infoskärmar</a>
             </div>
           </article>
         </div>
@@ -478,7 +483,7 @@ import "../../../styles/avab.css";
 
         <div class="grid-3">
           <article class="ref-card">
-            <img src="https://avab.eu/wp-content/uploads/2023/02/1920x1080-Saffle-simhall-50m-hogt-palm-vatten-parkering-2-1536x864.webp" alt="Säffle simhall ljudanläggning och AV-teknik" width="1536" height="864" loading="lazy" decoding="async">
+            <img src="/assets/avab-referens-saffle-simhall-1350x900.webp" alt="Säffle simhall ljudanläggning och AV-teknik" width="1350" height="900" loading="lazy" decoding="async">
             <div class="ref-content">
               <h3>Säffle simhall</h3>
               <p>Komplett ljudanläggning, trådlösa mikrofonsystem och styrning i en extremt korrosiv miljö där robusthet är avgörande.</p>
@@ -487,20 +492,20 @@ import "../../../styles/avab.css";
           </article>
 
           <article class="ref-card">
-            <img src="https://images.unsplash.com/photo-1600965962102-9d260a71890d?auto=format&fit=crop&q=80&w=900" alt="Årjängs simhall badhus ljud styrning och fukttålig teknik" width="900" height="600" loading="lazy" decoding="async">
+            <img src="/assets/Saffle simhall-dmx styrning pool 1200x800.webp" alt="Simhall med ljud styrning och fukttålig teknik" width="1200" height="800" loading="lazy" decoding="async">
             <div class="ref-content">
               <h3>Årjängs simhall</h3>
               <p>Zonstyrt ljud för badets olika delar, från vattengympa och simträning till bakgrundsmusik, drift och publika ytor.</p>
-              <a href="/referenser/arjangs-simhall/">Se referensprojekt</a>
+              <a href="/kontakt/">Prata med oss om simhall</a>
             </div>
           </article>
 
           <article class="ref-card">
-            <img src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&q=80&w=900" alt="Badhus relax gym och publika ytor med zonstyrt ljud" width="900" height="600" loading="lazy" decoding="async">
+            <img src="/assets/hundfjallshotellet_spa.webp" alt="Badhus relax gym och publika ytor med zonstyrt ljud" width="1200" height="900" loading="lazy" decoding="async">
             <div class="ref-content">
               <h3>Badhus, relax och gym</h3>
               <p>Samma anläggning kan behöva tydliga utrop i bassäng, lugn atmosfär i relax, RGB-ljus, musik i gym, infoskärmar och enkel styrning för personalen.</p>
-              <a href="/ljudsystem/">Läs om ljudsystem</a>
+              <a href="/tjanster/taluppfattbarhet/">Läs om taluppfattbarhet</a>
             </div>
           </article>
         </div>
@@ -591,48 +596,7 @@ import "../../../styles/avab.css";
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="avab-container">
-      <div class="footer-grid">
-        <div>
-          <a class="brand" href="/" aria-label="AVAB – till startsidan">
-            <span class="brand-dot" aria-hidden="true"></span>
-            AVAB
-          </a>
-          <p>AV-teknik för simhallar, badhus, skolor, sporthallar, hotell och publika miljöer – fukttålig ljud, styrning, hörslinga och dokumentation, från projektering till färdig drift över hela Sverige.</p>
-        </div>
-
-        <nav aria-label="Sidlänkar">
-          <h2>Genvägar</h2>
-          <ul class="footer-links">
-            <li><a href="#far-du">Det här får du</a></li>
-            <li><a href="#teknik">Teknik i simhall</a></li>
-            <li><a href="#referenser">Referensprojekt</a></li>
-            <li><a href="#arbetssatt">Så jobbar vi</a></li>
-            <li><a href="#cta">Vanliga frågor</a></li>
-          </ul>
-        </nav>
-
-        <div>
-          <h2>Kontakt</h2>
-          <address class="footer-contact" style="font-style: normal;">
-            <a href="tel:+46548202080">054-8202080</a>
-            <a href="mailto:info@avab.eu">info@avab.eu</a>
-            <span>Skraggevägen 4<br>663 41 Hammarö, Värmland</span>
-          </address>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <span>© <span id="year">2026</span> AVAB. Alla rättigheter förbehållna.</span>
-        <span>Org.nr 000000-0000 · <a href="/integritetspolicy/" style="color: inherit; text-decoration: underline;">Integritetspolicy</a></span>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <SiteFooter />
 </body>
 </html>
 

@@ -398,15 +398,6 @@ import "../../../styles/avab.css";
     </div>
   </div>
 
-  <div class="trust-strip">
-    <div class="avab-container trust-container">
-      <div class="trust-item">Bas på Hammarö, projekt i hela Sverige</div>
-      <div class="trust-item">Helhetsansvar från ritning till mätprotokoll</div>
-      <div class="trust-item">Mätning enligt SS-EN IEC 60118-4</div>
-      <div class="trust-item">Ljud, akustik, styrning &amp; tillgänglighet i samma kedja</div>
-    </div>
-  </div>
-
   <main id="main">
 
     <!-- 1. AEO: Vad är en hörslinga? -->
@@ -940,7 +931,8 @@ import "../../../styles/avab.css";
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const year = document.getElementById('year');
+    if (year) year.textContent = String(new Date().getFullYear());
   </script>
 </body>
 </html>

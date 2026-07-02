@@ -325,15 +325,6 @@ import "../../styles/avab.css";
     </div>
   </div>
 
-  <div class="trust-strip">
-    <div class="avab-container trust-container">
-      <div class="trust-item">Projektering, installation &amp; service</div>
-      <div class="trust-item">Återanvänd befintliga högtalare</div>
-      <div class="trust-item">App- &amp; touchstyrning</div>
-      <div class="trust-item">Referenser i skolor och industri</div>
-    </div>
-  </div>
-
   <main id="main">
 
     <!-- 1. Översikt + AEO-definition (rankande artikeltext bevarad) -->
@@ -687,7 +678,8 @@ import "../../styles/avab.css";
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    const year = document.getElementById('year');
+    if (year) year.textContent = String(new Date().getFullYear());
   </script>
 </body>
 </html>
