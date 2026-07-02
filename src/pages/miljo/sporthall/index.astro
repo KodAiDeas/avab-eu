@@ -281,11 +281,26 @@ import "../../../styles/avab.css";
     .compact-faq details.faq-item:nth-child(1),
     .compact-faq details.faq-item:nth-child(2) { border-top: 1px solid var(--avab-border); }
 
+    .sporthall-faq-cta {
+      padding-top: 48px;
+      padding-bottom: 96px;
+    }
+    .sporthall-faq-cta .compact-faq {
+      margin-bottom: 64px;
+    }
+
     /* ---- Responsivt (sidspecifikt) ---- */
     @media (max-width: 768px) {
       .calculator-band { grid-template-columns: 1fr; padding: 24px; }
       .compact-faq { grid-template-columns: 1fr; }
       .compact-faq details.faq-item:nth-child(2) { border-top: none; }
+      .sporthall-faq-cta {
+        padding-top: 40px;
+        padding-bottom: 72px;
+      }
+      .sporthall-faq-cta .compact-faq {
+        margin-bottom: 44px;
+      }
     }
   </style>
 </head>
@@ -473,7 +488,7 @@ import "../../../styles/avab.css";
       </div>
     </section>
 
-    <section class="section" id="cta">
+    <section class="section sporthall-faq-cta" id="cta">
       <div class="avab-container">
         <div class="faq-heading">
           <div class="eyebrow">Vanliga frågor</div>
