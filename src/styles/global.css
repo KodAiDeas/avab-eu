@@ -441,6 +441,7 @@ p {
 .fact-band {
   background: var(--avab-white);
   border-bottom: 1px solid var(--avab-border);
+  border-top: 1px solid var(--avab-border);
 }
 .fact-grid {
   display: grid;
