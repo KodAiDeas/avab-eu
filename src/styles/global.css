@@ -438,6 +438,38 @@ p {
   margin-right: 8px;
 }
 
+.fact-band {
+  background: var(--avab-white);
+  border-bottom: 1px solid var(--avab-border);
+}
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--avab-border);
+}
+.fact {
+  min-height: 118px;
+  padding: 22px 20px;
+  background: var(--avab-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+.fact span {
+  color: var(--avab-green);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.fact strong {
+  color: var(--avab-dark);
+  font-size: clamp(0.95rem, 1vw, 1.08rem);
+  line-height: 1.3;
+}
+
 .trust-strip {
   background: var(--avab-light);
   padding: 32px 0;
@@ -930,6 +962,7 @@ details.faq-item p {
 /* ---- 17. Responsivt -------------------------------------- */
 @media (max-width: 1120px) {
   .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fact-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 @media (max-width: 1024px) {
@@ -952,6 +985,8 @@ details.faq-item p {
 @media (max-width: 768px) {
   .avab-container { width: min(calc(100% - 32px), var(--avab-max)); }
   .section { padding: 56px 0; }
+  .fact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .fact { min-height: 104px; padding: 20px 18px; }
 
   /* Hero stackar och blir naturligt flöde */
   .hero { min-height: auto; padding: 72px 0 56px; }
