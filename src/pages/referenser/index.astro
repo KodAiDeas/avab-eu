@@ -1,0 +1,442 @@
+---
+import SiteFooter from "../../components/SiteFooter.astro";
+import SiteHeader from "../../components/SiteHeader.astro";
+import ReferenceCard from "../../components/ReferenceCard.astro";
+import { references, environments, technologies } from "../../data/referenser";
+import "../../styles/avab.css";
+
+// Utvalda projekt till förtroendebandet (fasta siffror som säljer).
+const trustItems = [
+  { stat: "494 högtalare", label: "Hundfjällshotellet, Sälen" },
+  { stat: "28 ljudzoner", label: "Hundfjället, appstyrt" },
+  { stat: "900 elever", label: "Minnebergsskolan, Arvika" },
+  { stat: "24 ljudzoner", label: "Friskis&Svettis Karlstad" },
+  { stat: "18+ år", label: "Kundrelation, Claessons" },
+  { stat: "8 zoner", label: "Lundsbergs skola" },
+];
+
+// Sortera: utvalda först, därefter i datafilens ordning.
+const sorted = [...references].sort((a, b) => Number(b.featured ?? false) - Number(a.featured ?? false));
+
+const total = references.length;
+
+// ItemList för schema.
+const itemListElements = sorted.map((ref, i) => ({
+  "@type": "ListItem",
+  position: i + 1,
+  url: `https://www.avab.eu${ref.slug}`,
+  name: ref.title,
+}));
+---
+
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referenser – AV-projekt inom ljud, bild, ljus och styrning | AVAB</title>
+  <meta name="description" content="Ett urval av AVAB:s projekt inom ljud, bild, ljus, styrsystem, hörslingor, mikrofoner och kamera i simhallar, sporthallar, skolor, gym, hotell, restauranger, konferens och offentliga miljöer." />
+  <link rel="canonical" href="https://www.avab.eu/referenser/" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="author" content="AVAB" />
+  <meta name="theme-color" content="#282E29" />
+
+  <meta property="og:title" content="Referenser – AVAB:s AV-projekt" />
+  <meta property="og:description" content="Filtrera AVAB:s referensprojekt på miljö och teknik: simhall, sporthall, skola, gym, hotell, konferens, industri och mer." />
+  <meta property="og:image" content="https://www.avab.eu/assets/avab-referens-hundfjallshotellet-salen-1200x800.webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="800" />
+  <meta property="og:image:alt" content="Ett urval av AVAB:s AV-projekt" />
+  <meta property="og:url" content="https://www.avab.eu/referenser/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="sv_SE" />
+  <meta property="og:site_name" content="AVAB" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Referenser – AVAB:s AV-projekt" />
+  <meta name="twitter:description" content="Filtrera AVAB:s referensprojekt på miljö och teknik." />
+  <meta name="twitter:image" content="https://www.avab.eu/assets/avab-referens-hundfjallshotellet-salen-1200x800.webp" />
+  <meta name="twitter:image:alt" content="Ett urval av AVAB:s AV-projekt" />
+
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": "https://www.avab.eu/referenser/#webpage",
+    "url": "https://www.avab.eu/referenser/",
+    "name": "Referenser – AVAB:s AV-projekt",
+    "description": "Ett urval av AVAB:s projekt inom ljud, bild, ljus, styrsystem, hörslingor, mikrofoner och kamera.",
+    "inLanguage": "sv-SE",
+    "isPartOf": { "@type": "WebSite", "name": "AVAB", "url": "https://www.avab.eu/" },
+    "breadcrumb": { "@id": "https://www.avab.eu/referenser/#breadcrumb" },
+    "mainEntity": {
+      "@type": "ItemList",
+      "numberOfItems": total,
+      "itemListElement": itemListElements
+    }
+  })} />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "@id": "https://www.avab.eu/referenser/#breadcrumb",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://www.avab.eu/" },
+      { "@type": "ListItem", "position": 2, "name": "Referenser", "item": "https://www.avab.eu/referenser/" }
+    ]
+  })} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---- Förtroendeband ---- */
+    .trust-band { border-top: 1px solid var(--avab-border); border-bottom: 1px solid var(--avab-border); background: var(--avab-white); }
+    .trust-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; }
+    .trust-cell { padding: 26px 22px; text-align: center; border-left: 1px solid var(--avab-border); }
+    .trust-cell:first-child { border-left: none; }
+    .trust-cell strong { display: block; color: var(--avab-dark); font-size: 1.25rem; line-height: 1.1; margin-bottom: 6px; }
+    .trust-cell span { color: var(--avab-dark-muted); font-size: 0.85rem; }
+
+    /* ---- Filterpanel ---- */
+    .filter-panel { margin-top: 8px; }
+    .filter-toggle {
+      display: none;
+      width: 100%;
+      padding: 16px 20px;
+      background: var(--avab-white);
+      border: 1px solid var(--avab-border);
+      border-radius: var(--avab-radius-sm);
+      box-shadow: var(--avab-shadow-sm);
+      font-weight: 800;
+      color: var(--avab-dark);
+      cursor: pointer;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .filter-toggle::after { content: "▾"; color: var(--avab-green); }
+    .filter-body { display: block; }
+
+    .filter-search {
+      width: 100%;
+      max-width: 460px;
+      padding: 13px 18px;
+      border: 1px solid var(--avab-border);
+      border-radius: var(--avab-radius-sm);
+      background: var(--avab-white);
+      font-family: inherit;
+      font-size: 1rem;
+      color: var(--avab-dark);
+      margin-bottom: 26px;
+    }
+    .filter-search:focus { outline: none; border-color: var(--avab-green); box-shadow: 0 0 0 3px rgba(143, 192, 37, 0.18); }
+
+    .filter-group { margin-bottom: 24px; }
+    .filter-group h2 { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--avab-dark-muted); margin-bottom: 12px; font-weight: 800; }
+    .chip-row { display: flex; flex-wrap: wrap; gap: 9px; }
+    .chip {
+      padding: 8px 15px;
+      background: var(--avab-white);
+      border: 1px solid var(--avab-border);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--avab-dark-muted);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      user-select: none;
+    }
+    .chip:hover { border-color: var(--avab-green); color: var(--avab-dark); }
+    .chip[aria-pressed="true"] {
+      background: var(--avab-green);
+      border-color: var(--avab-green);
+      color: var(--avab-dark);
+    }
+
+    .filter-actions { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin-top: 4px; }
+    .result-count { font-weight: 800; color: var(--avab-dark); }
+    .result-count span { color: var(--avab-green); }
+    .clear-filters {
+      background: none;
+      border: none;
+      color: var(--avab-dark-muted);
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: underline;
+      padding: 0;
+    }
+    .clear-filters:hover { color: var(--avab-green); }
+
+    /* ---- Referensgrid ---- */
+    .ref-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 34px; }
+
+    .ref-meta { display: block; margin-bottom: 8px; color: var(--avab-green); font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.03em; }
+    .ref-pills { display: flex; flex-wrap: wrap; gap: 7px; margin: 16px 0 0; padding: 0; list-style: none; }
+    .ref-pills li {
+      padding: 5px 11px;
+      background: var(--avab-light);
+      border: 1px solid var(--avab-border);
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--avab-dark-muted);
+    }
+    .ref-pills .ref-pill-more { background: transparent; border-style: dashed; }
+    .ref-cta { margin-top: 18px; font-weight: 800; color: var(--avab-dark); }
+    .ref-filter-card:hover .ref-cta { color: var(--avab-green); }
+    .ref-cta::after { content: " →"; color: var(--avab-green); }
+
+    .no-results {
+      display: none;
+      margin-top: 34px;
+      padding: 48px 32px;
+      text-align: center;
+      background: var(--avab-white);
+      border: 1px solid var(--avab-border);
+      border-radius: var(--avab-radius-sm);
+      color: var(--avab-dark-muted);
+    }
+    .no-results strong { display: block; color: var(--avab-dark); font-size: 1.15rem; margin-bottom: 8px; }
+
+    @media (max-width: 1024px) {
+      .trust-grid { grid-template-columns: repeat(3, 1fr); }
+      .trust-cell:nth-child(4) { border-left: none; }
+      .ref-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .trust-grid { grid-template-columns: repeat(2, 1fr); }
+      .trust-cell:nth-child(odd) { border-left: none; }
+      .ref-grid { grid-template-columns: 1fr; }
+      .filter-toggle { display: flex; }
+      .filter-body { display: none; margin-top: 16px; }
+      .filter-body.open { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <SiteHeader />
+
+  <nav class="breadcrumbs" aria-label="Brödsmulor">
+    <div class="avab-container">
+      <ol>
+        <li><a href="https://www.avab.eu/">Start</a></li>
+        <li><span aria-current="page">Referenser</span></li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="section section--light" style="padding-bottom: 40px;">
+    <div class="avab-container">
+      <div class="section-heading" style="max-width: 820px;">
+        <div>
+          <div class="eyebrow">Referenser</div>
+          <h1>Projekt vi är stolta över</h1>
+          <p class="lead-dark">Ett urval av AVAB:s projekt inom ljud, bild, ljus, styrsystem, hörslingor, mikrofoner, kamera och AV-teknik i simhallar, sporthallar, skolor, gym, hotell, restauranger, konferensanläggningar och offentliga miljöer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-band">
+    <div class="avab-container">
+      <div class="trust-grid">
+        {trustItems.map((item) => (
+          <div class="trust-cell">
+            <strong>{item.stat}</strong>
+            <span>{item.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+    <section class="section">
+      <div class="avab-container">
+
+        <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filterBody">
+          Filtrera referenser
+        </button>
+
+        <div class="filter-panel">
+          <div class="filter-body" id="filterBody">
+            <input
+              type="search"
+              class="filter-search"
+              id="refSearch"
+              placeholder="Sök på projekt, ort eller teknik…"
+              aria-label="Sök bland referenser"
+            />
+
+            <div class="filter-group">
+              <h2>Miljö</h2>
+              <div class="chip-row" id="envChips">
+                {environments.map((env) => (
+                  <button type="button" class="chip" data-filter-type="env" data-filter-id={env.id} aria-pressed="false">{env.label}</button>
+                ))}
+              </div>
+            </div>
+
+            <div class="filter-group">
+              <h2>Teknik</h2>
+              <div class="chip-row" id="techChips">
+                {technologies.map((tech) => (
+                  <button type="button" class="chip" data-filter-type="tech" data-filter-id={tech.id} aria-pressed="false">{tech.label}</button>
+                ))}
+              </div>
+            </div>
+
+            <div class="filter-actions">
+              <span class="result-count" id="resultCount">Visar <span>{total}</span> av {total} referenser</span>
+              <button type="button" class="clear-filters" id="clearFilters" hidden>Rensa filter</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="ref-grid" id="refGrid">
+          {sorted.map((reference) => (
+            <ReferenceCard reference={reference} environments={environments} technologies={technologies} />
+          ))}
+        </div>
+
+        <div class="no-results" id="noResults">
+          <strong>Inga referenser matchar filtren</strong>
+          <p>Prova att välja färre filter eller rensa och börja om.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--light">
+      <div class="avab-container">
+        <div class="fullwidth-cta">
+          <div>
+            <div class="eyebrow">Planerar ni ett liknande projekt?</div>
+            <h2>Skicka underlaget, så hittar vi rätt nivå tillsammans</h2>
+            <p>Skicka ritningar, FFU eller en kort beskrivning så hjälper vi er hitta rätt nivå på ljud, bild, ljus, styrning och tillgänglighet, från projektering till driftsatt och dokumenterad anläggning.</p>
+            <div class="cta-actions">
+              <a class="button button-light" href="/kontakt/#ladda-upp-underlag">Ladda upp underlag</a>
+              <a class="button button-secondary" href="/#tjanster">Se våra tjänster</a>
+              <a class="button button-quiet" href="tel:+46548202080">Ring 054-8202080</a>
+            </div>
+          </div>
+          <ul class="calc-list">
+            <li>Ljud, bild, ljus och styrsystem i samma helhet.</li>
+            <li>Mikrofoner, hörslingor och taluppfattbarhet.</li>
+            <li>Projektering, installation och driftsättning.</li>
+            <li>Service och support när verksamheten förändras.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <SiteFooter />
+
+  <script is:inline>
+    (function () {
+      const grid = document.getElementById("refGrid");
+      const cards = Array.from(grid.querySelectorAll(".ref-filter-card"));
+      const chips = Array.from(document.querySelectorAll(".chip"));
+      const search = document.getElementById("refSearch");
+      const resultCount = document.getElementById("resultCount");
+      const clearBtn = document.getElementById("clearFilters");
+      const noResults = document.getElementById("noResults");
+      const total = cards.length;
+
+      const state = { env: new Set(), tech: new Set(), q: "" };
+
+      function readUrl() {
+        const params = new URLSearchParams(window.location.search);
+        (params.get("miljo") || "").split(",").filter(Boolean).forEach((id) => state.env.add(id));
+        (params.get("teknik") || "").split(",").filter(Boolean).forEach((id) => state.tech.add(id));
+        state.q = (params.get("q") || "").toLowerCase();
+      }
+
+      function writeUrl() {
+        const params = new URLSearchParams();
+        if (state.env.size) params.set("miljo", Array.from(state.env).join(","));
+        if (state.tech.size) params.set("teknik", Array.from(state.tech).join(","));
+        if (state.q) params.set("q", state.q);
+        const qs = params.toString();
+        const url = qs ? window.location.pathname + "?" + qs : window.location.pathname;
+        window.history.replaceState(null, "", url);
+      }
+
+      function matches(card) {
+        const envs = (card.dataset.environments || "").split(" ").filter(Boolean);
+        const techs = (card.dataset.technologies || "").split(" ").filter(Boolean);
+
+        // Miljö: matcha NÅGON vald miljö. Teknik: matcha NÅGON vald teknik.
+        // Miljö + teknik samtidigt: båda grupperna måste matcha.
+        if (state.env.size && !envs.some((e) => state.env.has(e))) return false;
+        if (state.tech.size && !techs.some((t) => state.tech.has(t))) return false;
+
+        if (state.q) {
+          const hay = [card.dataset.title, card.dataset.location, card.dataset.excerpt,
+                       envs.join(" "), techs.join(" ")].join(" ");
+          if (!hay.includes(state.q)) return false;
+        }
+        return true;
+      }
+
+      function apply() {
+        let shown = 0;
+        cards.forEach((card) => {
+          const ok = matches(card);
+          card.style.display = ok ? "" : "none";
+          if (ok) shown++;
+        });
+        resultCount.innerHTML = "Visar <span>" + shown + "</span> av " + total + " referenser";
+        noResults.style.display = shown === 0 ? "block" : "none";
+        const active = state.env.size || state.tech.size || state.q;
+        clearBtn.hidden = !active;
+        writeUrl();
+      }
+
+      function syncChips() {
+        chips.forEach((chip) => {
+          const set = chip.dataset.filterType === "env" ? state.env : state.tech;
+          chip.setAttribute("aria-pressed", set.has(chip.dataset.filterId) ? "true" : "false");
+        });
+        if (state.q) search.value = state.q;
+      }
+
+      chips.forEach((chip) => {
+        chip.addEventListener("click", () => {
+          const set = chip.dataset.filterType === "env" ? state.env : state.tech;
+          const id = chip.dataset.filterId;
+          if (set.has(id)) { set.delete(id); chip.setAttribute("aria-pressed", "false"); }
+          else { set.add(id); chip.setAttribute("aria-pressed", "true"); }
+          apply();
+        });
+      });
+
+      search.addEventListener("input", () => { state.q = search.value.trim().toLowerCase(); apply(); });
+
+      clearBtn.addEventListener("click", () => {
+        state.env.clear(); state.tech.clear(); state.q = "";
+        search.value = "";
+        chips.forEach((c) => c.setAttribute("aria-pressed", "false"));
+        apply();
+      });
+
+      const toggle = document.getElementById("filterToggle");
+      const body = document.getElementById("filterBody");
+      toggle.addEventListener("click", () => {
+        const open = body.classList.toggle("open");
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      });
+
+      readUrl();
+      syncChips();
+      apply();
+    })();
+  </script>
+</body>
+</html>
