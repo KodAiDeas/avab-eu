@@ -1,4 +1,6 @@
 ---
+import avabFooterLogo from "../assets/AVAB_logotyp_neg_green-white.png";
+
 const year = new Date().getFullYear();
 ---
 
@@ -21,7 +23,9 @@ const year = new Date().getFullYear();
 
   <div class="avab-container foot-main">
     <div class="foot-col foot-brand">
-      <div class="foot-brand-mark">AVAB</div>
+      <a class="foot-brand-mark" href="/" aria-label="AVAB - till startsidan">
+        <img src={avabFooterLogo.src} alt="AVAB" width="154" height="43" loading="lazy" decoding="async" />
+      </a>
       <p class="foot-brand-desc">
         Ljud, bild och säkerhet för offentliga miljöer - från projektering till driftsatt anläggning. Sedan mer än 35 år.
       </p>
@@ -188,10 +192,15 @@ const year = new Date().getFullYear();
   }
 
   .foot-brand-mark {
-    font-size: 1.9rem;
-    font-weight: 800;
-    letter-spacing: 0.02em;
+    display: inline-flex;
+    align-items: center;
     margin-bottom: 16px;
+  }
+
+  .foot-brand-mark img {
+    width: auto;
+    height: 43px;
+    object-fit: contain;
   }
 
   .foot-brand-desc {
