@@ -1505,6 +1505,7 @@ a.footer-contact-row:focus-visible {
 
 @media (max-width: 768px) {
   .avab-container { width: min(calc(100% - 32px), var(--avab-max)); }
+  .fact-band .fact-grid { width: min(calc(100% - 32px), var(--avab-max, 1280px)); }
   .section { padding: 56px 0; }
 
   /* Hero stackar och blir naturligt flöde */
@@ -1545,44 +1546,53 @@ a.footer-contact-row:focus-visible {
    Reference/fact band components
    ============================================================ */
 .fact-band {
+  display: flex;
+  justify-content: center;
   background: var(--avab-white);
   border-top: 1px solid var(--avab-border);
   border-bottom: 1px solid var(--avab-border);
 }
 
-.fact-grid {
-  width: min(100%, var(--avab-max));
-  margin-inline: auto;
+.fact-band .fact-grid {
+  width: min(calc(100% - 48px), var(--avab-max, 1280px));
+  max-width: var(--avab-max, 1280px);
+  margin-left: auto;
+  margin-right: auto;
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
 }
 
-.fact {
+.fact-band .fact {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   min-height: 116px;
-  padding: 24px 18px;
+  padding: 28px 18px 24px;
   border-left: 1px solid var(--avab-border);
+  text-align: center;
 }
 
-.fact:last-child {
+.fact-band .fact:last-child {
   border-right: 1px solid var(--avab-border);
 }
 
-a.fact {
-  display: block;
+.fact-band a.fact {
+  display: flex;
   color: inherit;
   text-decoration: none;
   transition: var(--transition-smooth);
 }
 
-a.fact:hover {
+.fact-band a.fact:hover {
   background: var(--avab-light);
 }
 
-a.fact:hover strong {
+.fact-band a.fact:hover strong {
   color: var(--avab-green);
 }
 
-.fact span {
+.fact-band .fact span {
   display: block;
   margin-bottom: 7px;
   color: #697269;
@@ -1591,7 +1601,7 @@ a.fact:hover strong {
   text-transform: uppercase;
 }
 
-.fact strong {
+.fact-band .fact strong {
   display: block;
   color: var(--avab-dark);
   font-size: 1.02rem;
@@ -1884,11 +1894,11 @@ a.fact:hover strong {
 }
 
 @media (max-width: 1040px) {
-  .fact-grid {
+  .fact-band .fact-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .fact:nth-child(n+4) {
+  .fact-band .fact:nth-child(n+4) {
     border-top: 1px solid var(--avab-border);
   }
 
@@ -1929,16 +1939,16 @@ a.fact:hover strong {
 }
 
 @media (max-width: 560px) {
-  .fact-grid {
+  .fact-band .fact-grid {
     grid-template-columns: 1fr;
   }
 
-  .fact {
+  .fact-band .fact {
     min-height: auto;
     border-top: 1px solid var(--avab-border);
   }
 
-  .fact:first-child {
+  .fact-band .fact:first-child {
     border-top: 0;
   }
 }
