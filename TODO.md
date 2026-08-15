@@ -48,6 +48,22 @@ AI:n ansvarar då för ID, datum, placering, dubblettkontroll och struktur.
 
 ## Näst på tur
 
+### Aktuellt fokus – mobil
+
+- [ ] **AVAB-009 · P1 · Verifiera mobil baseline och deployment-paritet** — Fastställ vilken branch/commit som är deployad på `test2.avab.eu` och verifiera att den matchar den kod som ska inventeras. Skärmbildens mobilheader med hamburgermeny matchar inte nuvarande `SiteHeader.astro` på `main`, så versionsskillnaden ska redas ut innan massändringar görs. Följ fas 0–1 i `src/docs/AVAB-mobilinventering.md`.  
+  _Tillagd: 2026-08-15 · Status: nästa steg._
+
+- [ ] **AVAB-010 · P1 · Full mobilinventering och globala mobilfixar** — Inventera samtliga aktiva publika routes enligt `src/docs/AVAB-mobilinventering.md` och bedöm dem mot `src/docs/AVAB-standard-mobil.md`. Prioritera globala rotorsaker före sidspecifika patchar. Första kända fokus: hero-CTA, knapphöjd/textbrytning, CTA-hierarki, sticky header, overflow, grids, bilder, formulär och innehåll som döljs på mobil. Implementera P0/P1-fixar efter att inventeringen visar rätt scope.  
+  _Tillagd: 2026-08-15 · Status: startar efter AVAB-009._
+
+- [ ] **AVAB-011 · P1 · Mobil regression och godkännande** — Efter mobilfixarna: verifiera samtliga aktiva routes på 360/390/430/768 px och kör 320 px gränstest för overflow. Kontrollera header/meny, hero, CTA, kort, bilder, formulär, kalkylatorer och footer. Build ska passera och visuella kontroller måste vara genomförda innan arbetet markeras klart.  
+  _Tillagd: 2026-08-15 · Status: startar efter AVAB-010._
+
+- [ ] **AVAB-012 · P1 · Normalisera kanonisk domän till `https://avab.eu/`** — Aktuell sporthallssida innehåller `https://www.avab.eu/` i canonical, Open Graph, schema och breadcrumbs. Inventera samtliga aktiva sidor och byt webbplatsens kanoniska/metadata-URL:er till `https://avab.eu/`; `www` ska endast vara alias/redirect. Kontrollera att inga interna länkar eller strukturerade data återintroducerar `www`.  
+  _Tillagd: 2026-08-15 · Status: konkret avvikelse verifierad på sporthallssidan; scope för resten av sajten behöver inventeras._
+
+### Tidigare prioriterat
+
 - [ ] **AVAB-001 · P1 · Alt-texter** — Gör en separat granska-först-runda. 17 alt-texter flaggades som tveksamma i tidigare inventering. Ortsnamn (Kil, Hammarö, Säffle, Kumla, Örebro, Arvika, Arjäng …) hör hemma i alt-texten, inte i filnamnen.  
   _Tillagd: 2026-08-03 · Status: verifiera att siffran 17 fortfarande är aktuell._
 
@@ -102,6 +118,8 @@ _Inga öppna beslut just nu._
 
 Dessa beslut ska kontrolleras innan samma fråga öppnas på nytt:
 
+- Mobilförbättringar ska följa `src/docs/AVAB-standard-mobil.md` och arbetsflödet i `src/docs/AVAB-mobilinventering.md`.
+- Återkommande mobilproblem ska lösas globalt/delat före sidspecifika patchar. Viktigt innehåll ska inte döljas enbart för att lösa en mobil layout.
 - Bilder i `public/assets/` ligger platt utan undermappar; de ska bara vara korrekt omdöpta.
 - Använd generiska motivnamn i filnamn. Ortsnamn hör hemma i alt-text.
 - Visuellt lika men icke-identiska bilder hålls isär (två högtalarinstallationer, två köpcentrum, två fältstyrkediagram).
