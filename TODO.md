@@ -51,7 +51,10 @@ AI:n ansvarar då för ID, datum, placering, dubblettkontroll och struktur.
 ### Aktuellt fokus – AI/content architecture
 
 - [ ] **AVAB-013 · P1 · Bygg AI-baserat innehållssystem och dokumentationsarkitektur** — Genomför projektet i `docs/projects/ai-content-system/README.md`: definiera sidtyper, centralisera återkommande layout i komponenter/templates, skapa content models/schemas, standardisera AI-workflows och införa PR/validerings-guardrails så att kunden säkert kan skapa standardsidor via ChatGPT/Claude utan VS Code. Referenser används som första pilot.  
-  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0–4 genomförda. Dokumentationssystem, sidtyper och komponentarkitektur är definierade; Referens har Astro Content Collection + Zod-schema + gemensam renderer; Minnebergsskolan är structured-content-pilot; PR-build passerar. Fas 4 har gjort `ai-page-authoring.md` till gemensam router med Active workflows för create/migrate Reference, create Environment/Service/Knowledge, modify existing och Special. Nästa steg är Fas 5: flytta fler regler till automatisk enforcement (internlänkar, canonical, alt/metadata och scope/duplication) samt visuell regression av referenspiloten före bred migrering._
+  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0–6 genomförda som baseline. Dokumentationssystem, sidtyper och komponentarkitektur är definierade; Referens har Astro Content Collection + Zod-schema + gemensam renderer; Minnebergsskolan är structured-content-pilot. Fas 4 har generella AI-workflows. Fas 5 har PR-build + guardrails. Fas 6 har Active kundworkflow för mobil/chat utan VS Code med GitHub som sanningskälla. Nästa steg är Fas 7: migrera befintliga sidor en sidtyp i taget, med Referenser först och visuell regression före bred utrullning._
+
+- [ ] **AVAB-015 · P2 · Lägg till unik preview per PR** — Gör mobil/chat-granskningen komplett genom att ge varje relevant PR en unik preview-URL utan att deploya över `test2.avab.eu`. Preview ska skapas automatiskt för PR, vara tydligt separerad från production/main och kunna tas bort efter stängd PR.  
+  _Tillagd: 2026-08-17 · Källa: Fas 6 kundworkflow · Status: UX-/infrastrukturförbättring; grön CI finns redan men ersätter inte visuell preview._
 
 ### Aktuellt fokus – mobil
 
@@ -127,10 +130,12 @@ _Inga öppna beslut just nu._
 Dessa beslut ska kontrolleras innan samma fråga öppnas på nytt:
 
 - GitHub ska vara gemensam sanningskälla för AVAB:s kod, AI-regler, standarder och workflows.
+- Chat/mobil är ett godkänt arbetsgränssnitt för normalt content-arbete när sidtypen har implementerad structured-content-modell; VS Code är inte ett krav. Samma branch-, scope-, validerings- och PR-regler gäller ändå.
 - AI-genererade sidändringar ska normalt ske via separat branch och PR, inte direkt mot `main`.
 - Innehåll och presentation ska separeras där det är praktiskt; återkommande sidlayout ska ligga i delade komponenter/templates och inte kopieras mellan sidor.
 - AI-page-authoring ska vara ett gemensamt router-workflow för hela sajten; sidtypsspecifika workflows ligger ovanpå samma fakta-, scope-, metadata-, validerings- och PR-regler.
 - Att en sidtyp har ett workflow betyder inte att dess content schema/template redan är implementerat. Faktisk kod är sanningskälla; AI får inte fylla ett arkitekturgap genom att kopiera en stor legacy-sida som normal lösning.
+- Grön CI/build ersätter inte visuell browsergranskning; PR-preview är en separat förbättring tills den är implementerad.
 - Mobilförbättringar ska följa `docs/standards/global/mobile.md` och arbetsflödet i `docs/workflows/mobile-qa.md`.
 - Återkommande mobilproblem ska lösas globalt/delat före sidspecifika patchar. Viktigt innehåll ska inte döljas enbart för att lösa en mobil layout.
 - Bilder i `public/assets/` ligger platt utan undermappar; de ska bara vara korrekt omdöpta.
