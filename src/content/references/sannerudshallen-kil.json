@@ -25,7 +25,7 @@
     { "label": "Signalbehandling", "value": "dbx DriveRack" },
     { "label": "Zoner", "value": "Läktare och is separat" }
   ],
-  "heroImage": { "src": "/assets/sannerudshallen-fardig-ljudinstallation.jpg", "alt": "Sannerudshallen i Kil med nya riktade högtalare över is och läktare" },
+  "heroImage": { "src": "/assets/ishall-interior-hogtalare-hero.webp", "alt": "Sannerudshallen i Kil med riktade högtalare över is och läktare" },
   "scopeItems": [
     { "label": "01", "title": "Riktade högtalare", "text": "Fler riktade 12-tums passiva Electro-Voice-högtalare används för bättre kontroll över ljudet mot läktare och is." },
     { "label": "02", "title": "Separat styrning", "text": "Läktare och is kan hanteras var för sig så ljudet kan anpassas efter om fokus ligger på publik eller aktivitet på isen." },
@@ -36,7 +36,7 @@
     { "eyebrow": "Driftsäkerhet", "title": "Passiva högtalare håller känslig teknik i rack", "text": "Passiva högtalare gör att förstärkare och annan känslig elektronik kan stå mer skyddat, vilket är en praktisk fördel i en kall och fuktig ishallsmiljö.", "bullets": ["Passiva högtalare i hallen", "Slutsteg och DSP i rack", "Mindre elektronik i utsatt miljö"] },
     { "eyebrow": "Rack", "title": "Tekniken flyttades från problemzonen", "text": "Den tidigare placeringen i sekretariatet gav fuktproblem och bidrog till trasiga slutsteg. Den nya rackplaceringen i ett omklädningsrum ger bättre förutsättningar för driftsäkerhet.", "bullets": ["Nytt rackskåp", "dbx DriveRack", "Nytt slutsteg", "Skyddad placering"] }
   ],
-  "gallery": [{ "src": "/assets/sannerudshallen-fardig-ljudinstallation.jpg", "alt": "Sannerudshallen i Kil med nya riktade högtalare över is och läktare" }],
+  "gallery": [{ "src": "/assets/ishall-interior-hogtalare-hero.webp", "alt": "Sannerudshallen i Kil med riktade högtalare över is och läktare" }],
   "faq": [
     { "question": "Vad gjorde AVAB i Sannerudshallen i Kil?", "answer": "AVAB projekterade om lokalens ljud, monterade fler riktade 12-tums passiva Electro-Voice-högtalare mot läktare och is, kompletterade slutstegsracket med dbx DriveRack och nytt slutsteg samt placerade tekniken i ett rackskåp i ett omklädningsrum." },
     { "question": "Varför räcker det inte med ett par stora högtalare över isen?", "answer": "Stora högtalare kan ge hög ljudnivå, men inte automatiskt tydligt tal. I en ishall skapar långa efterklanger och hårda ytor snabbt ett burkigt intryck. Fler riktade högtalare ger bättre kontroll över var ljudet hamnar." },
