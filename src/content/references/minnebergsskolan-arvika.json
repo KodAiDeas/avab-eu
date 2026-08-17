@@ -1,0 +1,129 @@
+{
+  "pageType": "reference",
+  "status": "published",
+  "slug": "/referenser/minnebergsskolan-arvika/",
+  "title": "Minnebergsskolan i Arvika – AV-teknik för en skola byggd för 900 elever",
+  "shortTitle": "Minnebergsskolan, Arvika",
+  "eyebrow": "Referens · Skola",
+  "summary": "En hel skola med enhetlig undervisningsteknik, 20 hörsalar, 18 informationsskärmar, hörslingor och en flexibel aula med Crestron, DMX och Dante.",
+  "featured": true,
+  "publishedDate": "2026-06-24",
+  "updatedDate": "2026-07-08",
+  "customer": {
+    "publicDisplay": "Minnebergsskolan",
+    "publicationApproved": true
+  },
+  "location": {
+    "publicDisplay": "Arvika"
+  },
+  "environments": ["skola"],
+  "technologies": ["ljud", "bild", "ljus", "styrsystem", "crestron", "dante", "mikrofoner", "horslinga"],
+  "role": "Projektering och installation av AV-teknik",
+  "scope": "Klassrum, lärarrum, 20 hörsalar, 18 informationsskärmar, hörslingor samt komplett ljud-, bild-, ljus- och styrteknik i matsal och aula.",
+  "needs": "Skolan behövde en konsekvent och lättanvänd teknisk nivå i många olika undervisningsmiljöer, samtidigt som större samlingsytor skulle klara presentationer, evenemang, tal, musik och tillgänglighetskrav.",
+  "responsibility": "AVAB levererade undervisningsteknik i klassrum och lärarrum, teknik till hörsalar och informationsskärmar samt projekterade och installerade de mer avancerade systemen i matsal och aula.",
+  "result": "Minnebergsskolan fick ett sammanhållet AV-system där vardagens undervisning är enkel att hantera och där aulan kan växla upp till större arrangemang med professionellt ljud, bild, ljus och flexibel ljuddistribution.",
+  "facts": [
+    { "label": "Plats", "value": "Arvika" },
+    { "label": "Miljö", "value": "Skola" },
+    { "label": "Kapacitet", "value": "900 elever" },
+    { "label": "Hörsalar", "value": "20 st" },
+    { "label": "Informationsskärmar", "value": "18 st · 55 tum" },
+    { "label": "AVAB:s roll", "value": "Projektering & installation" }
+  ],
+  "heroImage": {
+    "src": "/assets/modern-trafasad-innergard.webp",
+    "alt": "Minnebergsskolans innergård och träfasader i Arvika"
+  },
+  "scopeItems": [
+    {
+      "label": "01",
+      "title": "Klassrum och lärarrum",
+      "text": "Epson touchprojektorer, högtalare och inkopplingspaneler med HDMI samt ljud in och ut ger en enhetlig vardagslösning för undervisningen."
+    },
+    {
+      "label": "02",
+      "title": "20 hörsalar",
+      "text": "Hörsalarna kompletterar undervisningsmiljöerna med fast AV-teknik som är byggd för tydlig presentation och enkel användning."
+    },
+    {
+      "label": "03",
+      "title": "18 informationsskärmar",
+      "text": "55-tums informationsskärmar placerades runt skolan för att ge elever, personal och besökare aktuell information i rätt miljö."
+    },
+    {
+      "label": "04",
+      "title": "Matsal och aula",
+      "text": "Större samlingsytor fick hörslingor och en flexibel lösning för ljud, bild, mikrofoner, ljusstyrning och evenemang."
+    }
+  ],
+  "detailSections": [
+    {
+      "eyebrow": "Undervisning",
+      "title": "Samma logik i klassrummen",
+      "text": "Klassrummen är uppbyggda med Epson touchprojektor, högtalare och en tydlig panel för HDMI samt ljud in och ut. Musik kan spelas utan att projektorn behöver startas, och hörslingesändare kan anslutas när behov finns.",
+      "bullets": ["Touchprojektor från Epson", "Högtalare för tal och programljud", "HDMI och ljud in/ut", "Anslutning för hörslingesändare"]
+    },
+    {
+      "eyebrow": "Tillgänglighet",
+      "title": "Hörslingor där många människor möts",
+      "text": "Hörslingor projekterades för biblioteket, matsalens nedre och övre plan samt gradängen och aulan. Lösningen gör att tillgänglighetskrav hanteras som en del av den ordinarie tekniska infrastrukturen.",
+      "bullets": ["Bibliotek", "Matsal – nedre plan", "Matsal – övre plan", "Gradäng och aula"]
+    },
+    {
+      "eyebrow": "Aula",
+      "title": "En flexibel scen- och evenemangsmiljö",
+      "text": "Aulan kombinerar sex meter bred projektorduk, Epson-projektor, Turbosound line-array, Crestronstyrning, DMX-ljus och fyra trådlösa Sennheiser-system. Det ger skolan betydligt större möjligheter än en vanlig presentationssal.",
+      "bullets": ["6 meter bred projektorduk", "Turbosound line-array", "Crestronstyrning", "DMX-ljus", "4 trådlösa Sennheiser-system"]
+    },
+    {
+      "eyebrow": "Ljuddistribution",
+      "title": "Dante gör systemet flyttbart",
+      "text": "Digitalt ljud distribueras över skolans nätverk med Dante. Mixer och flyttbara basar kan anslutas i förberedda nätverksuttag och placeras där lokalen och arrangemanget kräver det.",
+      "bullets": ["Digitalt ljud över nätverk", "Förberedda anslutningspunkter", "Flyttbar mixer", "Flexibel placering av basar"]
+    }
+  ],
+  "gallery": [
+    {
+      "src": "/assets/modern-trafasad-innergard.webp",
+      "alt": "Minnebergsskolans innergård och träfasader i Arvika"
+    }
+  ],
+  "faq": [
+    {
+      "question": "Vad levererade AVAB till Minnebergsskolan?",
+      "answer": "AVAB levererade AV-tekniken i hela skolan: interaktiva Epson-projektorer, högtalare och inkopplingspaneler i klassrum och lärarrum, 20 hörsalar, 18 informationsskärmar, hörslingor och komplett ljud-, bild- och styrteknik i matsal och aula."
+    },
+    {
+      "question": "Hur är klassrummen på Minnebergsskolan utrustade?",
+      "answer": "Klassrummen har Epson touchprojektor, högtalare och panel med HDMI samt ljud in och ut. Musik kan spelas utan att projektorn startas och hörslingesändare kan anslutas vid behov."
+    },
+    {
+      "question": "Var finns hörslingor på Minnebergsskolan?",
+      "answer": "Hörslingor projekterades för biblioteket, matsalens nedre och övre plan samt gradängen och aulan. Klassrummen har även anslutningsmöjlighet för hörslingesändare."
+    },
+    {
+      "question": "Vilken teknik finns i Minnebergsskolans aula?",
+      "answer": "Aulan har sex meter bred projektorduk, Epson-projektor, Turbosound line-array, Crestronstyrning, DMX-ljus, fyra trådlösa Sennheiser-system, Dante och möjlighet att ansluta flyttbara basar."
+    },
+    {
+      "question": "Hur många informationsskärmar finns i skolan?",
+      "answer": "AVAB installerade 18 stycken 55-tums informationsskärmar runt om i Minnebergsskolan."
+    },
+    {
+      "question": "Varför används Dante i aulan?",
+      "answer": "Dante transporterar digitalt ljud över skolans nätverk. Mixern och flyttbara basar kan anslutas i förberedda nätverksuttag och placeras där lokalen och evenemanget kräver."
+    }
+  ],
+  "relatedServices": [
+    { "label": "Ljudsystem", "href": "/tjanster/ljudsystem/" },
+    { "label": "Hörslinga", "href": "/tjanster/horslinga/" },
+    { "label": "Styrsystem & integration", "href": "/tjanster/styrsystem-integration/" }
+  ],
+  "relatedReferences": ["/referenser/ekhagsskolan-dals-langed/", "/referenser/sorby-sporthall-kumla/"],
+  "seo": {
+    "title": "Minnebergsskolan Arvika – AV-teknik för 900 elever | AVAB",
+    "description": "AVAB levererade klassrumsteknik, 20 hörsalar, 18 informationsskärmar, hörslingor och komplett aulateknik med Crestron, DMX och Dante till Minnebergsskolan i Arvika.",
+    "noindex": false
+  }
+}
