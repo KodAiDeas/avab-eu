@@ -1,0 +1,54 @@
+{
+  "pageType": "reference",
+  "status": "published",
+  "slug": "/referenser/sannerudshallen-kil/",
+  "title": "Sannerudshallen Kil – från burkigt ljud över isen till tydligare tal",
+  "shortTitle": "Sannerudshallen, Kil",
+  "eyebrow": "Referens · Ishall",
+  "summary": "AVAB projekterade om ljudet i Sannerudshallen med riktade 12-tums passiva Electro-Voice-högtalare, separat styrning för läktare och is samt skyddad rackplacering.",
+  "featured": false,
+  "publishedDate": "2026-07-08",
+  "updatedDate": "2026-07-08",
+  "customer": { "publicDisplay": "Sannerudshallen", "publicationApproved": true },
+  "location": { "publicDisplay": "Kil" },
+  "environments": ["ishall", "sporthall"],
+  "technologies": ["ljud", "dsp", "taluppfattbarhet", "projektering"],
+  "role": "Omprojektering och uppgradering av ishallsljud",
+  "scope": "Riktade 12-tums passiva Electro-Voice-högtalare, separat styrning för läktare och is, dbx DriveRack, nytt slutsteg och skyddad rackplacering.",
+  "needs": "Den tidigare ljudlösningen gav ett burkigt intryck och otillräcklig taltydlighet i en akustiskt krävande ishallsmiljö med hårda ytor och lång efterklang.",
+  "responsibility": "AVAB projekterade om ljudet, kompletterade med fler riktade högtalare, uppgraderade signalbehandling och slutsteg samt flyttade tekniken till en mer skyddad placering.",
+  "result": "Läktare och is kan hanteras separat, ljudet riktas bättre mot rätt ytor och känslig elektronik står mer skyddad från den fuktiga miljön.",
+  "facts": [
+    { "label": "Plats", "value": "Kil" },
+    { "label": "Miljö", "value": "Ishall" },
+    { "label": "Högtalare", "value": "12 tum · Electro-Voice" },
+    { "label": "Signalbehandling", "value": "dbx DriveRack" },
+    { "label": "Zoner", "value": "Läktare och is separat" }
+  ],
+  "heroImage": { "src": "/assets/sannerudshallen-fardig-ljudinstallation.jpg", "alt": "Sannerudshallen i Kil med nya riktade högtalare över is och läktare" },
+  "scopeItems": [
+    { "label": "01", "title": "Riktade högtalare", "text": "Fler riktade 12-tums passiva Electro-Voice-högtalare används för bättre kontroll över ljudet mot läktare och is." },
+    { "label": "02", "title": "Separat styrning", "text": "Läktare och is kan hanteras var för sig så ljudet kan anpassas efter om fokus ligger på publik eller aktivitet på isen." },
+    { "label": "03", "title": "Skyddad elektronik", "text": "Förstärkare och annan känslig elektronik samlades i ett rackskåp i ett omklädningsrum i stället för den tidigare fuktutsatta placeringen." }
+  ],
+  "detailSections": [
+    { "eyebrow": "Akustik", "title": "Hög ljudnivå är inte samma sak som tydligt tal", "text": "I en ishall kan långa efterklanger och hårda ytor snabbt ge ett burkigt intryck. Fler riktade högtalare ger bättre kontroll över var ljudet hamnar.", "bullets": ["Riktning mot rätt publikytor", "Mindre beroende av ett fåtal stora ljudkällor", "Bättre kontroll i efterklangsrik miljö"] },
+    { "eyebrow": "Driftsäkerhet", "title": "Passiva högtalare håller känslig teknik i rack", "text": "Passiva högtalare gör att förstärkare och annan känslig elektronik kan stå mer skyddat, vilket är en praktisk fördel i en kall och fuktig ishallsmiljö.", "bullets": ["Passiva högtalare i hallen", "Slutsteg och DSP i rack", "Mindre elektronik i utsatt miljö"] },
+    { "eyebrow": "Rack", "title": "Tekniken flyttades från problemzonen", "text": "Den tidigare placeringen i sekretariatet gav fuktproblem och bidrog till trasiga slutsteg. Den nya rackplaceringen i ett omklädningsrum ger bättre förutsättningar för driftsäkerhet.", "bullets": ["Nytt rackskåp", "dbx DriveRack", "Nytt slutsteg", "Skyddad placering"] }
+  ],
+  "gallery": [{ "src": "/assets/sannerudshallen-fardig-ljudinstallation.jpg", "alt": "Sannerudshallen i Kil med nya riktade högtalare över is och läktare" }],
+  "faq": [
+    { "question": "Vad gjorde AVAB i Sannerudshallen i Kil?", "answer": "AVAB projekterade om lokalens ljud, monterade fler riktade 12-tums passiva Electro-Voice-högtalare mot läktare och is, kompletterade slutstegsracket med dbx DriveRack och nytt slutsteg samt placerade tekniken i ett rackskåp i ett omklädningsrum." },
+    { "question": "Varför räcker det inte med ett par stora högtalare över isen?", "answer": "Stora högtalare kan ge hög ljudnivå, men inte automatiskt tydligt tal. I en ishall skapar långa efterklanger och hårda ytor snabbt ett burkigt intryck. Fler riktade högtalare ger bättre kontroll över var ljudet hamnar." },
+    { "question": "Varför valde AVAB passiva högtalare?", "answer": "Passiva högtalare gör att förstärkare och annan känslig elektronik kan stå mer skyddat i rack. Det är en praktisk fördel i kall och fuktig miljö där aktiva högtalare ute i hallen kan utsättas för större påfrestning." },
+    { "question": "Vad betyder separat styrning för läktare och is?", "answer": "Det betyder att högtalarna som täcker läktaren och högtalarna som täcker isytan kan hanteras var för sig. Vid vissa tillfällen behövs ljud tydligast till publiken, vid andra till själva isen." },
+    { "question": "Varför flyttades tekniken från sekretariatet?", "answer": "Den tidigare placeringen gav fuktproblem och bidrog till trasiga slutsteg. Genom att samla tekniken i ett rackskåp i ett omklädningsrum fick anläggningen en mer driftsäker placering." }
+  ],
+  "relatedServices": [
+    { "label": "Ljudsystem", "href": "/tjanster/ljudsystem/" },
+    { "label": "Taluppfattbarhet", "href": "/tjanster/taluppfattbarhet/" },
+    { "label": "Projektering", "href": "/tjanster/projektering/" }
+  ],
+  "relatedReferences": ["/referenser/sorby-sporthall-kumla/"],
+  "seo": { "title": "Sannerudshallen Kil | Ljuduppgradering i ishall | AVAB", "description": "Referensprojekt: AVAB projekterade om ljudet i Sannerudshallen i Kil med riktade 12-tums passiva Electro-Voice-högtalare, separat styrning för läktare och is samt skyddad rackplacering.", "noindex": false }
+}
