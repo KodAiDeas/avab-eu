@@ -19,7 +19,7 @@ När en AI arbetar i detta repo ska `TODO.md` behandlas som **single source of t
 5. Flytta inte en punkt till **Klart** förrän den faktiskt är verifierad som färdig.
 6. Ta aldrig bort en öppen punkt bara för att den verkar gammal. Markera i stället **Verifiera**, **Blockerad** eller be om beslut.
 7. När en punkt är klar: bocka av den, lägg till slutdatum och flytta den till **Klart**.
-8. **Beslut tagna** ska bevaras. Kontrollera dem innan en gammal fråga tas upp igen.
+8. **Beslut tagna** ska bevaras. Kontrollera dem innan samma fråga tas upp igen.
 9. Om en uppgift hör ihop med en fil, branch, PR eller issue: lägg till referensen i samma punkt.
 10. Håll TODO:n kortfattad. Större specifikationer och arbetsplaner ska ligga i egna dokument och länkas härifrån.
 11. Uppdatera alltid **Senast uppdaterad** när innehållet ändras.
@@ -51,7 +51,7 @@ AI:n ansvarar då för ID, datum, placering, dubblettkontroll och struktur.
 ### Aktuellt fokus – AI/content architecture
 
 - [ ] **AVAB-013 · P1 · Bygg AI-baserat innehållssystem och dokumentationsarkitektur** — Genomför projektet i `docs/projects/ai-content-system/README.md`: definiera sidtyper, centralisera återkommande layout i komponenter/templates, skapa content models/schemas, standardisera AI-workflows och införa PR/validerings-guardrails så att kunden säkert kan skapa standardsidor via ChatGPT/Claude utan VS Code. Referenser används som första pilot.  
-  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0–6 genomförda som baseline. Dokumentationssystem, sidtyper och komponentarkitektur är definierade; Referens har Astro Content Collection + Zod-schema + gemensam renderer; Minnebergsskolan är structured-content-pilot. Fas 4 har generella AI-workflows. Fas 5 har PR-build + guardrails. Fas 6 har Active kundworkflow för mobil/chat utan VS Code med GitHub som sanningskälla. Nästa steg är Fas 7: migrera befintliga sidor en sidtyp i taget, med Referenser först och visuell regression före bred utrullning._
+  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0–6 genomförda som baseline. Fas 7 pågår för Referenser: 6 av 14 aktiva referenser är migrerade till Astro Content Collection + gemensam `ReferencePage.astro` (Minneberg, Säffle, Sannerud, Hanza, Hundfjäll och Sörby). `npm run validate` passerar efter våg 2 (GitHub Actions run 33). Åtta referenser återstår; flera har legacy-bildnamn som inte finns i dagens `public/assets` och ska inte gissningsmappas. Se `docs/projects/ai-content-system/phase-7-reference-migration.md`. Visuell regression krävs före merge och innan sidtypen Referens kan markeras klar._
 
 - [ ] **AVAB-015 · P2 · Lägg till unik preview per PR** — Gör mobil/chat-granskningen komplett genom att ge varje relevant PR en unik preview-URL utan att deploya över `test2.avab.eu`. Preview ska skapas automatiskt för PR, vara tydligt separerad från production/main och kunna tas bort efter stängd PR.  
   _Tillagd: 2026-08-17 · Källa: Fas 6 kundworkflow · Status: UX-/infrastrukturförbättring; grön CI finns redan men ersätter inte visuell preview._
@@ -115,7 +115,7 @@ _Inga punkter just nu._
 
 ## Blockerat
 
-_Inga verifierade blockerare just nu._
+- **Fas 7 Referenser – återstående 8 sidor:** flera legacy-sidor refererar projektspecifika bildfilnamn som inte finns i dagens `public/assets`. Exakt bildmappning ska spåras eller visuellt verifieras innan de migreras; AI får inte välja en liknande bild på chans. Se `docs/projects/ai-content-system/phase-7-reference-migration.md`.
 
 ---
 
