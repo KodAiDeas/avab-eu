@@ -51,7 +51,7 @@ AI:n ansvarar då för ID, datum, placering, dubblettkontroll och struktur.
 ### Aktuellt fokus – AI/content architecture
 
 - [ ] **AVAB-013 · P1 · Bygg AI-baserat innehållssystem och dokumentationsarkitektur** — Genomför projektet i `docs/projects/ai-content-system/README.md`: definiera sidtyper, centralisera återkommande layout i komponenter/templates, skapa content models/schemas, standardisera AI-workflows och införa PR/validerings-guardrails så att kunden säkert kan skapa standardsidor via ChatGPT/Claude utan VS Code. Referenser används som första pilot.  
-  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0 inventering och Fas 1 dokumentmigrering genomförda. Canonical dokumentationsnav, mobilstandard, mobil-QA, referensstandard, sidtyper och AI write-scope finns nu under `docs/`. Nästa steg är Fas 2: inventera faktisk komponent-/layoutduplicering och definiera kodens gemensamma primitives innan schema implementeras._
+  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0–2 genomförda. Dokumentationssystem, sidtyper, AI write-scope och komponentarkitektur är definierade. Fas 2 visar tydlig duplicering av SEO/head, breadcrumbs, hero, FAQ, CTA, kort/data-primitives och lokal komponent-CSS. Nästa steg är Fas 3: definiera och implementera content model/schema för referenser som pilot, med en gemensam datakälla för individuell sida, referensindex, metadata/schema och relaterat innehåll._
 
 ### Aktuellt fokus – mobil
 
@@ -127,7 +127,6 @@ Dessa beslut ska kontrolleras innan samma fråga öppnas på nytt:
 - AI-genererade sidändringar ska normalt ske via separat branch och PR, inte direkt mot `main`.
 - Innehåll och presentation ska separeras där det är praktiskt; återkommande sidlayout ska ligga i delade komponenter/templates och inte kopieras mellan sidor.
 - Mobilförbättringar ska följa `docs/standards/global/mobile.md` och arbetsflödet i `docs/workflows/mobile-qa.md`.
-- Publika referenser ska konsekvent heta **Referenser** och ligga under `/referenser/`; `referensprojekt` är inte canonical terminologi/route.
 - Återkommande mobilproblem ska lösas globalt/delat före sidspecifika patchar. Viktigt innehåll ska inte döljas enbart för att lösa en mobil layout.
 - Bilder i `public/assets/` ligger platt utan undermappar; de ska bara vara korrekt omdöpta.
 - Använd generiska motivnamn i filnamn. Ortsnamn hör hemma i alt-text.
