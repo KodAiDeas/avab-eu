@@ -1,6 +1,6 @@
-﻿# AVAB Astro-projekt
+# AVAB Astro-projekt
 
-Det här är den lokala Astro-sidan för AVAB. Målet är att hålla projektet lätt att förstå: sidor i en mapp, gemensam design i en fil och publika bilder på ett ställe.
+Detta repo innehåller AVAB:s webbplats i Astro.
 
 ## Snabbstart
 
@@ -10,63 +10,110 @@ npm run build
 npm run preview
 ```
 
-## Färgkodad projektkarta
+## Viktigaste startpunkterna
 
-| Färg | Område | Var det ligger | Regel |
-| --- | --- | --- | --- |
-| Grön | Designsystem | `src/styles/avab.css` | Ändra här när flera sidor ska se likadana ut. |
-| Blå | Sidor | `src/pages/**/index.astro` | En publik URL per `index.astro`. |
-| Gul | Sidmaterial | `src/pages/**/**/*.txt`, gamla `.html` | Använd som källa, men bygg nya sidor i `.astro`. |
-| Rosa | Bilder | `public/assets` | Använd i HTML som `/assets/filnamn.webp`. |
-| Grå | Konfiguration | `astro.config.mjs`, `tsconfig.json`, `package.json` | Rör varsamt, påverkar hela projektet. |
+- `AGENTS.md` – regler för AI-agenter och arbetsdisciplin.
+- `CLAUDE.md` – motsvarande instruktioner för Claude.
+- `docs/README.md` – officiellt dokumentationsnav och regelhierarki.
+- `TODO.md` – projektets enda levande att-göra-lista.
 
-## Rekommenderad arbetsordning
+Vid större arbete: börja i `docs/README.md`, klassificera uppgiften och läs endast relevant Active-standard/workflow.
 
-1. Välj sidan du jobbar med i `src/pages`.
-2. Lägg sidans unika text och HTML i sidans `index.astro`.
-3. Lägg återkommande design i `src/styles/avab.css`.
-4. Lägg bilder som ska användas med `/assets/...` i `public/assets`.
-5. Kör `npm run build` innan du anser sidan klar.
+## Projektkarta
 
-## Snabbnavigering i projektträdet
+| Område | Plats | Ansvar |
+|---|---|---|
+| Publika routes | `src/pages/` | Nuvarande Astro-routes. Befintliga sidor kan fortfarande innehålla äldre kopierad markup under migration. |
+| Delade komponenter | `src/components/` | Återkommande UI och sidprimitives. |
+| Layouts | `src/layouts/` | Gemensamma layouts där de används. |
+| Global design | `src/styles/avab.css` | Projektets huvudsakliga globala stylesheet. |
+| Data | `src/data/` | Strukturerad data som används av nuvarande implementation. |
+| Dokumentation | `docs/` | Gällande standarder, workflows, arkitektur och projektplaner. |
+| Äldre dokument | `src/docs/` | Migrationskälla; behandlas inte automatiskt som gällande standard. |
+| Publika assets | `public/` | Bilder, ikoner och andra statiska filer. |
 
-> Färgikonerna följer projektkartan ovan. Klicka på filnamn eller mappar för att hoppa direkt dit.
+## Arkitekturprincip för nya standardsidor
 
-- 🟦 [`src/pages/`](src/pages/) - publika sidor och URL:er
-  - 🟦 [`index.astro`](src/pages/index.astro) - startsidan
-  - 🟦 [`miljo/`](src/pages/miljo/) - miljösidor
-    - 🟦 [`butik-retail/index.astro`](src/pages/miljo/butik-retail/index.astro)
-    - 🟦 [`hotell/index.astro`](src/pages/miljo/hotell/index.astro)
-    - 🟦 [`industri/index.astro`](src/pages/miljo/industri/index.astro)
-    - 🟦 [`ishall/index.astro`](src/pages/miljo/ishall/index.astro)
-    - 🟦 [`kontor-konferens/index.astro`](src/pages/miljo/kontor-konferens/index.astro)
-    - 🟦 [`kopcentrum-galleria/index.astro`](src/pages/miljo/kopcentrum-galleria/index.astro)
-    - 🟦 [`kyrka/index.astro`](src/pages/miljo/kyrka/index.astro)
-    - 🟦 [`parkering-garage/index.astro`](src/pages/miljo/parkering-garage/index.astro)
-    - 🟦 [`restaurang-bar-klubb/index.astro`](src/pages/miljo/restaurang-bar-klubb/index.astro)
-    - 🟦 [`simhall/index.astro`](src/pages/miljo/simhall/index.astro)
-    - 🟦 [`skola/index.astro`](src/pages/miljo/skola/index.astro)
-    - 🟦 [`sporthall/index.astro`](src/pages/miljo/sporthall/index.astro)
-    - 🟦 [`utomhusidrott/index.astro`](src/pages/miljo/utomhusidrott/index.astro)
-    - 🟦 [`vard/index.astro`](src/pages/miljo/vard/index.astro)
-  - 🟦 [`rastsignal/index.astro`](src/pages/rastsignal/index.astro)
-  - 🟦 [`referenser/saffle-simhall/index.astro`](src/pages/referenser/saffle-simhall/index.astro)
-  - 🟦 [`tjanster/`](src/pages/tjanster/) - tjänstesidor
-    - 🟦 [`horslinga/index.astro`](src/pages/tjanster/horslinga/index.astro)
-    - 🟦 [`kameraovervakning/index.astro`](src/pages/tjanster/kameraovervakning/index.astro)
-- 🟩 [`src/styles/`](src/styles/) - gemensam design
-  - 🟩 [`avab.css`](src/styles/avab.css) - enda aktiva gemensamma stylesheet
-- 🟨 Sidmaterial och textkällor
-  - 🟨 [`src/pages/miljo/**/Avab-hub-*.txt`](src/pages/miljo/) - gamla/externa underlag per miljösida
-- 🟪 [`public/assets/`](public/assets/) - publika bilder som används med `/assets/filnamn.webp`
-- ⚙️ Projektkonfiguration
-  - ⚙️ [`astro.config.mjs`](astro.config.mjs)
-  - ⚙️ [`package.json`](package.json)
-  - ⚙️ [`tsconfig.json`](tsconfig.json)
+Nya standardiserade innehållssidor ska **inte** skapas genom att kopiera en hel befintlig `index.astro` och bygga om HTML/CSS sida för sida.
 
-## Viktiga principer
+Målriktningen är:
 
-- `src/styles/avab.css` är projektets enda aktiva gemensamma CSS-fil.
-- Nya sidor ska importera `avab.css` med rätt relativ sökväg, till exempel `import "../../../styles/avab.css";`.
-- Undvik dubbla bildkopior när du kan. För publika bildvägar räcker `public/assets`.
-- Skriv svenska tecken direkt i UTF-8.
+```text
+strukturerat innehåll/data
+        ↓
+schema/validering
+        ↓
+delad template/komponenter
+        ↓
+publik route
+```
+
+Det gör att design, SEO, metadata, responsivitet och gemensamma sektioner kan ändras centralt.
+
+Denna arkitektur migreras stegvis. Faktisk kod är alltid sanningskälla för vad som redan är implementerat; dokumentation får inte användas för att låtsas att en framtida modell redan finns.
+
+## Sidtyper
+
+Den officiella sidtypskartan finns i:
+
+`docs/architecture/page-types.md`
+
+Minst följande typer används som arbetsmodell:
+
+- reference
+- environment
+- service
+- knowledge
+- listing
+- special
+
+Referenser är första pilot för strukturerat innehåll.
+
+## AI och innehållsarbete
+
+Normal sidredigering ska följa:
+
+`docs/workflows/ai-page-authoring.md`
+
+AI ska i första hand ändra innehåll/data. Ändringar i exempelvis `src/components/`, `src/layouts/`, `src/styles/`, build/config eller schemas räknas som arkitektur-/utvecklingsarbete och får inte smygas in i en vanlig innehållsuppgift.
+
+Scope-regler finns i:
+
+`docs/architecture/ai-write-scope.md`
+
+## Canonical domän
+
+AVAB:s canonical domän är:
+
+```text
+https://avab.eu/
+```
+
+`www` är endast alias/redirect och ska inte introduceras som canonical källa i nya metadata, schema eller interna absoluta webbplats-URL:er.
+
+## Mobil och responsivitet
+
+Gällande mobilstandard:
+
+`docs/standards/global/mobile.md`
+
+QA-workflow:
+
+`docs/workflows/mobile-qa.md`
+
+Återkommande problem ska lösas globalt eller i delad komponent innan sidspecifika patchar används.
+
+## Viktiga repo-regler
+
+- GitHub är gemensam sanningskälla.
+- AI-genererade ändringar sker normalt på branch + PR, inte direkt till `main`.
+- Git ska vara historiken; skapa inte nya arbetskopior med namn som `gammal`, `ny`, `final2` eller `trasig`.
+- Äldre `.txt`, preview-filer, zip-backuper och alternativa Astro-filer kan finnas kvar från tidigare arbete. De ska inte antas vara aktiva bara för att de ligger i repot.
+- Radera inte sådant material utan verifiering av imports, routes och användning.
+- Kör `npm run build` före godkännande av kodändringar.
+
+## Dokumentationsprincip
+
+En regel ska ha en primär hemvist. Länka till gällande standard i stället för att kopiera samma regel till flera markdownfiler.
+
+Se `docs/architecture/documentation-rules.md` för full regelhierarki.
