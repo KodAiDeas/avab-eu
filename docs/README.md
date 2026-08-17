@@ -42,8 +42,20 @@ Steg-för-steg-flöden för återkommande arbete, exempelvis skapa ny referens, 
 ### `architecture/`
 Tekniska principer, content model, komponentansvar, dokumentationsregler och andra beslut som påverkar flera delar av systemet.
 
+Aktiva arkitekturdokument:
+
+- `docs/architecture/documentation-rules.md` – hur dokumentation klassificeras och prioriteras.
+- `docs/architecture/page-types.md` – officiella sidtyper och routing för AI.
+- `docs/architecture/ai-write-scope.md` – vilka filer en innehållsagent normalt får respektive inte får ändra.
+
 ### `projects/`
 Avgränsade förändringsprojekt med mål, faser, status, beroenden och Definition of Done. Projektens öppna arbete ska fortfarande representeras i `TODO.md`; projektdokumentet ersätter inte TODO.
+
+Aktuellt projekt:
+
+- `docs/projects/ai-content-system/README.md`
+- `docs/projects/ai-content-system/phase-0-audit.md`
+- `docs/projects/ai-content-system/document-migration-map.md`
 
 ### `archive/`
 Historik och ersatta dokument. Arkiverade filer är inte gällande standard.
@@ -84,3 +96,5 @@ Endast dokument med `Status: Active` ska betraktas som gällande standard, om in
 ## Pågående migration
 
 Dokument under `src/docs/` migreras kontrollerat inom projektet `docs/projects/ai-content-system/README.md`. De ska inte massraderas innan innehåll, länkar och TODO-referenser har inventerats.
+
+Fas 0-baseline är dokumenterad i `docs/projects/ai-content-system/phase-0-audit.md`. Nästa migrationssteg är Fas 1: göra den nya dokumentstrukturen till enda entydiga aktiva struktur innan template-/content-model-refaktor börjar.
