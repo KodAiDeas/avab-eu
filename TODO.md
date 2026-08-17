@@ -50,22 +50,22 @@ AI:n ansvarar då för ID, datum, placering, dubblettkontroll och struktur.
 
 ### Aktuellt fokus – AI/content architecture
 
-- [ ] **AVAB-013 · P1 · Bygg AI-baserat innehållssystem och dokumentationsarkitektur** — Genomför projektet i `docs/projects/ai-content-system/README.md`: inventera och migrera dokumentationen, definiera sidtyper, centralisera återkommande layout i komponenter/templates, skapa content models/schemas, standardisera AI-workflows och införa PR/validerings-guardrails så att kunden säkert kan skapa standardsidor via ChatGPT/Claude utan VS Code. Referenser används som första pilot.  
-  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: projektgrund och dokumentationsnav skapade; fas 0–1 ska fortsätta med full inventering och migrationskarta._
+- [ ] **AVAB-013 · P1 · Bygg AI-baserat innehållssystem och dokumentationsarkitektur** — Genomför projektet i `docs/projects/ai-content-system/README.md`: definiera sidtyper, centralisera återkommande layout i komponenter/templates, skapa content models/schemas, standardisera AI-workflows och införa PR/validerings-guardrails så att kunden säkert kan skapa standardsidor via ChatGPT/Claude utan VS Code. Referenser används som första pilot.  
+  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0 inventering och Fas 1 dokumentmigrering genomförda. Canonical dokumentationsnav, mobilstandard, mobil-QA, referensstandard, sidtyper och AI write-scope finns nu under `docs/`. Nästa steg är Fas 2: inventera faktisk komponent-/layoutduplicering och definiera kodens gemensamma primitives innan schema implementeras._
 
 ### Aktuellt fokus – mobil
 
-- [ ] **AVAB-009 · P1 · Verifiera mobil baseline och deployment-paritet** — Fastställ vilken branch/commit som är deployad på `test2.avab.eu` och verifiera att den matchar den kod som ska inventeras. Skärmbildens mobilheader med hamburgermeny matchar inte nuvarande `SiteHeader.astro` på `main`, så versionsskillnaden ska redas ut innan massändringar görs. Följ fas 0–1 i `src/docs/AVAB-mobilinventering.md`.  
+- [ ] **AVAB-009 · P1 · Verifiera mobil baseline och deployment-paritet** — Fastställ vilken branch/commit som är deployad på `test2.avab.eu` och verifiera att den matchar den kod som ska inventeras. Skärmbildens mobilheader med hamburgermeny matchar inte nuvarande `SiteHeader.astro` på `main`, så versionsskillnaden ska redas ut innan massändringar görs. Följ Fas 0–1 i `docs/workflows/mobile-qa.md`.  
   _Tillagd: 2026-08-15 · Status: nästa steg._
 
-- [ ] **AVAB-010 · P1 · Full mobilinventering och globala mobilfixar** — Inventera samtliga aktiva publika routes enligt `src/docs/AVAB-mobilinventering.md` och bedöm dem mot `src/docs/AVAB-standard-mobil.md`. Prioritera globala rotorsaker före sidspecifika patchar. Första kända fokus: hero-CTA, knapphöjd/textbrytning, CTA-hierarki, sticky header, overflow, grids, bilder, formulär och innehåll som döljs på mobil. Implementera P0/P1-fixar efter att inventeringen visar rätt scope.  
+- [ ] **AVAB-010 · P1 · Full mobilinventering och globala mobilfixar** — Inventera samtliga aktiva publika routes enligt `docs/workflows/mobile-qa.md` och bedöm dem mot `docs/standards/global/mobile.md`. Prioritera globala rotorsaker före sidspecifika patchar. Första kända fokus: hero-CTA, knapphöjd/textbrytning, CTA-hierarki, sticky header, overflow, grids, bilder, formulär och innehåll som döljs på mobil. Implementera P0/P1-fixar efter att inventeringen visar rätt scope.  
   _Tillagd: 2026-08-15 · Status: startar efter AVAB-009._
 
 - [ ] **AVAB-011 · P1 · Mobil regression och godkännande** — Efter mobilfixarna: verifiera samtliga aktiva routes på 360/390/430/768 px och kör 320 px gränstest för overflow. Kontrollera header/meny, hero, CTA, kort, bilder, formulär, kalkylatorer och footer. Build ska passera och visuella kontroller måste vara genomförda innan arbetet markeras klart.  
   _Tillagd: 2026-08-15 · Status: startar efter AVAB-010._
 
-- [ ] **AVAB-012 · P1 · Normalisera kanonisk domän till `https://avab.eu/`** — Aktuell sporthallssida innehåller `https://www.avab.eu/` i canonical, Open Graph, schema och breadcrumbs. Inventera samtliga aktiva sidor och byt webbplatsens kanoniska/metadata-URL:er till `https://avab.eu/`; `www` ska endast vara alias/redirect. Kontrollera att inga interna länkar eller strukturerade data återintroducerar `www`.  
-  _Tillagd: 2026-08-15 · Status: konkret avvikelse verifierad på sporthallssidan; scope för resten av sajten behöver inventeras._
+- [ ] **AVAB-012 · P1 · Normalisera kanonisk domän till `https://avab.eu/`** — Aktiva sidor innehåller fortfarande förekomster av `https://www.avab.eu/` i canonical, Open Graph, schema och breadcrumbs. Inventera samtliga aktiva sidor och byt webbplatsens kanoniska/metadata-URL:er till `https://avab.eu/`; `www` ska endast vara alias/redirect. Kontrollera att inga interna länkar eller strukturerade data återintroducerar `www`.  
+  _Tillagd: 2026-08-15 · Status: konkret avvikelse verifierad på flera representativa sidor; scope för resten av sajten behöver inventeras._
 
 ### Tidigare prioriterat
 
@@ -126,7 +126,8 @@ Dessa beslut ska kontrolleras innan samma fråga öppnas på nytt:
 - GitHub ska vara gemensam sanningskälla för AVAB:s kod, AI-regler, standarder och workflows.
 - AI-genererade sidändringar ska normalt ske via separat branch och PR, inte direkt mot `main`.
 - Innehåll och presentation ska separeras där det är praktiskt; återkommande sidlayout ska ligga i delade komponenter/templates och inte kopieras mellan sidor.
-- Mobilförbättringar ska följa `src/docs/AVAB-standard-mobil.md` och arbetsflödet i `src/docs/AVAB-mobilinventering.md` under pågående dokumentmigration.
+- Mobilförbättringar ska följa `docs/standards/global/mobile.md` och arbetsflödet i `docs/workflows/mobile-qa.md`.
+- Publika referenser ska konsekvent heta **Referenser** och ligga under `/referenser/`; `referensprojekt` är inte canonical terminologi/route.
 - Återkommande mobilproblem ska lösas globalt/delat före sidspecifika patchar. Viktigt innehåll ska inte döljas enbart för att lösa en mobil layout.
 - Bilder i `public/assets/` ligger platt utan undermappar; de ska bara vara korrekt omdöpta.
 - Använd generiska motivnamn i filnamn. Ortsnamn hör hemma i alt-text.
