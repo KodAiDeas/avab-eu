@@ -51,7 +51,7 @@ AI:n ansvarar då för ID, datum, placering, dubblettkontroll och struktur.
 ### Aktuellt fokus – AI/content architecture
 
 - [ ] **AVAB-013 · P1 · Bygg AI-baserat innehållssystem och dokumentationsarkitektur** — Genomför projektet i `docs/projects/ai-content-system/README.md`: definiera sidtyper, centralisera återkommande layout i komponenter/templates, skapa content models/schemas, standardisera AI-workflows och införa PR/validerings-guardrails så att kunden säkert kan skapa standardsidor via ChatGPT/Claude utan VS Code. Referenser används som första pilot.  
-  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0–2 genomförda. Dokumentationssystem, sidtyper, AI write-scope och komponentarkitektur är definierade. Fas 2 visar tydlig duplicering av SEO/head, breadcrumbs, hero, FAQ, CTA, kort/data-primitives och lokal komponent-CSS. Nästa steg är Fas 3: definiera och implementera content model/schema för referenser som pilot, med en gemensam datakälla för individuell sida, referensindex, metadata/schema och relaterat innehåll._
+  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0–3 tekniskt genomförda. Astro Content Collection + Zod-schema finns i `src/content.config.ts`; Minnebergsskolan är första structured-content-pilot och renderas via gemensam `ReferencePage.astro`; `ReferenceCard.astro` använder samma content-entry när den finns. PR-validering med `npm run build` passerar. Nästa steg: visuell regression av Minnebergspiloten innan massmigrering, därefter Fas 4 AI-workflows för create/modify reference._
 
 ### Aktuellt fokus – mobil
 
@@ -77,6 +77,9 @@ AI:n ansvarar då för ID, datum, placering, dubblettkontroll och struktur.
 
 - [ ] **AVAB-003 · P1 · Oanvänd bild** — `kopcentrum-fasad-kvall-bred.webp` hade 0 referenser i tidigare inventering. Verifiera aktuellt läge och besluta därefter om bilden ska raderas eller tas i bruk.  
   _Tillagd: 2026-08-03 · Status: behöver verifieras._
+
+- [ ] **AVAB-014 · P1 · Verifiera och åtgärda dependency-sårbarheter** — PR-buildens `npm install` rapporterade 7 vulnerabilities (1 low, 6 high). Kör `npm audit`, identifiera vilka paket/transitiva beroenden som berörs och åtgärda utan att automatiskt använda breaking `--force`-uppgraderingar. Build och visuell regression ska göras efter dependency-ändringar.  
+  _Tillagd: 2026-08-17 · Källa: GitHub Actions `Validate pull request`, run 4 · Status: behöver säkerhetsinventering._
 
 ---
 
