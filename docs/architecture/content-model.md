@@ -1,68 +1,42 @@
 # AVAB – content model
 
-**Status:** Draft  
+**Status:** Active  
 **Owner:** AVAB-projektet  
 **Scope:** Strukturerat innehåll för standardiserade sidtyper  
 **Last reviewed:** 2026-08-17
 
 ## Syfte
 
-Detta dokument skiljer innehållsmodell från sidstandard och visuell implementation. Sidstandarder beskriver **vad sidan måste kommunicera**. Content model beskriver **vilka strukturerade fält som behövs för att systemet ska kunna rendera och validera detta konsekvent**.
+Content model skiljer sidans innehåll från dess presentation. Standarder beskriver vad en sida ska kommunicera; content collections och schema definierar vilka data som krävs för att rendera detta konsekvent.
 
-Exakt implementation fastställs i Fas 3 efter kontroll mot aktuell Astro-version och befintlig kod. Projektet använder i nuläget Astro 6.4.7.
+## Teknisk implementation
 
-## Principer
+Projektet kör Astro 6.4.7 och använder Astro Content Collections för referenspiloten.
 
-- Content och presentation ska separeras där det ger tydlig nytta.
-- Normalt sidinnehåll ska kunna ändras utan global CSS eller component edits.
-- Obligatoriska fält ska valideras automatiskt där praktiskt möjligt.
-- Fält som styr layout ska vara få, kontrollerade och helst enums/booleans framför fri CSS-liknande konfiguration.
-- URL/slug, SEO, bilder och relationer ska ha gemensamma regler.
-- En ny content model får inte skapa ett parallellt system utan migrationsplan för befintliga sidor.
+- Collection-konfiguration: `src/content.config.ts`
+- Referensdata: `src/content/references/`
+- Gemensam rendering: `src/components/references/ReferencePage.astro`
+- Pilot: `src/content/references/minnebergsskolan-arvika.json`
+- Befintlig URL behålls via en tunn routefil under `src/pages/referenser/<slug>/index.astro` under migrationsperioden.
 
-## Gemensamma fält – kandidat
+Astro-schemat validerar entry-data vid build. En referens som saknar obligatoriska fält eller har ogiltig slug ska därför inte kunna passera normal build.
 
-Följande är en första normaliserad modell, inte ännu ett låst schema:
+## Referensmodell – Active
 
-```text
-pageType
-slug
-status
-title
-summary
-seo.title
-seo.description
-hero.image
-hero.alt
-relatedItems
-```
-
-`status` bör minst kunna skilja draft/publicerad. Exakta fältnamn bestäms vid implementation och ska sedan vara stabila.
-
-## Referenser – pilot
-
-Referenser är första pilot eftersom repot redan har `ReferenceCard.astro`, `src/data/referenser.ts` och många individuellt kodade referenssidor.
-
-Kandidatgrupper:
-
-### Identitet
+### Identitet och publicering
 
 ```text
+pageType: reference
+status: draft | published
 slug
 title
 shortTitle
+eyebrow
 summary
-category/environment
 featured
-```
-
-### Publicering
-
-```text
-status
 publishedDate
-updatedDate
-completedYear/completedDate
+updatedDate?
+completedYear?
 ```
 
 ### Kund och plats
@@ -73,7 +47,14 @@ customer.publicationApproved
 location.publicDisplay
 ```
 
-Exakt kundnamn ska vara separat från offentlig visning så att publiceringsgodkännande kan hanteras utan att redaktören måste skriva om hela sidan.
+### Klassificering
+
+```text
+environments[]
+technologies[]
+```
+
+Dessa identifierare ska följa samma taxonomi som referensöversikten tills taxonomin senare centraliseras.
 
 ### Uppdrag
 
@@ -83,23 +64,12 @@ scope
 needs
 responsibility
 result
-challenge? 
-implementation?
-technicalDetails?
+facts[]
+scopeItems[]
+detailSections[]
 ```
 
-Fördjupningsfält ska vara valfria. Tomma sektioner ska inte renderas.
-
-### Fakta
-
-```text
-environment
-projectPeriod?
-deliveryForm?
-statusLabel?
-services[]
-products[]?
-```
+`detailSections` är strukturerade textblock och får inte innehålla fri HTML eller CSS-konfiguration.
 
 ### Bilder
 
@@ -112,49 +82,72 @@ gallery[].alt
 gallery[].caption?
 ```
 
-### Verifiering
+Bildvägar ska vara publika paths som börjar med `/`. Alt-text valideras som obligatorisk för alla bilder i modellen.
+
+### FAQ
 
 ```text
-testimonial?
-verification?
-support?
+faq[].question
+faq[].answer
 ```
 
-Kundcitat eller kundidentifiering ska ha explicit publiceringsgodkännande där det krävs.
+Samma FAQ-data används av både synlig FAQ och FAQPage structured data. Separat kopia av FAQ-schema ska inte skrivas i contentfilen.
 
 ### Relationer
 
 ```text
-relatedServices[]
+relatedServices[].label
+relatedServices[].href
 relatedReferences[]
 ```
 
-Relationer bör använda stabila sluggar/identifierare, inte kopierad presentationsmarkup.
+Relationer använder interna paths/sluggar, inte kopierad markup.
 
 ### SEO
 
 ```text
 seo.title
 seo.description
-seo.noindex?
+seo.noindex
 ```
 
-Canonical ska genereras från canonical site `https://avab.eu/` + route, inte skrivas för hand i varje contentfil.
+Canonical skrivs inte i contentfilen. Den genereras som `https://avab.eu` + `slug` i den gemensamma referenskomponenten.
 
-## Vad modellen inte ska innehålla
+## En datakälla per referens
 
-Undvik fält som egentligen är CSS eller layoutimplementation, exempelvis godtyckliga färgkoder, pixelvärden, grid-kolumner eller HTML-fragment för standardsektioner. Sådana val hör hemma i designsystem/template.
+När en referens finns i content collection ska collection-entry vara primär källa för både detaljsidan och dess referenskort.
 
-## Nästa beslut i Fas 3
+Under stegvis migration finns äldre poster kvar i `src/data/referenser.ts`. `ReferenceCard.astro` försöker därför först läsa en content-entry med samma slug och använder den när den finns. Legacy-posten används endast som fallback för ännu omigrerade referenser.
 
-1. verifiera hur Astro 6 content collections passar nuvarande projekt
-2. jämför content collection mot typed TypeScript-data för referenspiloten
-3. inventera `src/data/referenser.ts` och faktisk användning
-4. mappa Minnebergsskolan och ytterligare 1–2 representativa referenser till modellen
-5. definiera schema och dynamic route/template
-6. definiera migration utan URL-förändringar
-7. validera bildreferenser, alt, slug och metadata i build
+När alla referenser är migrerade ska fallback-registret avvecklas eller reduceras till central taxonomi om det fortfarande behövs.
 
-## Stopregel
+## Presentation får inte läcka in i modellen
 
-Detta Draft-dokument får inte användas som bevis för att content collections redan är implementerade. Faktisk kod är sanningskälla för implementation tills Fas 3 är genomförd.
+Contentfiler får inte innehålla:
+
+- CSS-klasser som styr unik layout
+- färgkoder
+- pixelvärden
+- antal gridkolumner
+- HTML-fragment för standardsektioner
+- duplicerad JSON-LD
+- canonical-URL
+
+Sådant hör hemma i komponenter, layout och designsystem.
+
+## Migreringsregel
+
+Migrera en referens i taget:
+
+1. skapa validerad entry i `src/content/references/`
+2. mappa allt relevant befintligt innehåll utan att ändra URL
+3. gör routefilen till tunn collection-loader
+4. verifiera att referenskortet använder samma entry
+5. kör build och visuell regression
+6. ta först därefter bort eventuell legacy-data som inte längre behövs
+
+## Pilotstatus
+
+Minnebergsskolan är första implementerade pilot. Den bevisar content collection + schema + gemensam rendering + samma data i referenskortet.
+
+Piloten är inte mall för att massmigrera resterande referenser utan regressionstest. Nästa referenser ska migreras stegvis efter att pilotens rendering granskats.
