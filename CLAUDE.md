@@ -2,6 +2,13 @@
 
 Det här dokumentet innehåller projektövergripande instruktioner för Claude när arbete utförs i AVAB-repot.
 
+## Startpunkt för projektkunskap
+
+- Läs `docs/README.md` som officiellt index och regelhierarki.
+- Identifiera uppgiftens sidtyp/scope och läs relevanta Active-standarder och workflows.
+- Dokument i gamla `src/docs/` är under migration; verifiera status innan de behandlas som gällande regel.
+- Vid skapande eller ändring av publika sidor: följ `docs/workflows/ai-page-authoring.md`.
+
 ## TODO är projektets minne
 
 - Läs `TODO.md` när en uppgift kan påverka projektets status, prioriteringar eller framtida arbete.
@@ -32,11 +39,14 @@ Om placering eller prioritet är oklar ska punkten läggas i `Inkorg / nya idée
 
 ## Projektstandarder
 
-- Kontrollera relevanta dokument i `src/docs/` innan större design-, innehålls- eller strukturändringar görs.
+- Följ regelhierarkin i `docs/README.md`.
+- Kontrollera relevanta standarder innan större design-, innehålls- eller strukturändringar görs.
 - Befintliga projektbeslut ska återanvändas i stället för att omprövas utan anledning.
 - Om en ny instruktion motsäger ett dokumenterat beslut ska konflikten lyftas tydligt i stället för att beslutet ändras tyst.
 - Verifiera alltid aktuell kod, branch, PR eller filstatus innan gamla anteckningar behandlas som aktuella fakta.
+- En innehållsuppgift får inte tyst expandera till ändringar i komponenter, layouts eller global CSS.
+- Återanvänd content model, schemas och delade komponenter framför duplicerad fullsidig markup.
 
 ## Grundprincip
 
-`TODO.md` ska fungera som AVAB-projektets långsiktiga minne för sådant som ännu inte är klart. Håll den uppdaterad, kompakt och användbar.
+GitHub ska vara den gemensamma sanningskällan så att Claude, ChatGPT och andra AI-agenter kan arbeta efter samma regler. `TODO.md` håller öppet arbete; `docs/README.md` leder till rätt projektkunskap.
