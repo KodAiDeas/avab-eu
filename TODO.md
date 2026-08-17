@@ -3,7 +3,7 @@
 > **Projektets enda levande att-göra-lista.**
 > Här samlas uppgifter, idéer som ska följas upp, blockerare och beslut som annars riskerar att glömmas bort.
 
-**Senast uppdaterad:** 2026-08-15  
+**Senast uppdaterad:** 2026-08-17  
 **Tidigare fil:** `src/docs/att-gora-lista.md`
 
 ---
@@ -47,6 +47,11 @@ AI:n ansvarar då för ID, datum, placering, dubblettkontroll och struktur.
 ---
 
 ## Näst på tur
+
+### Aktuellt fokus – AI/content architecture
+
+- [ ] **AVAB-013 · P1 · Bygg AI-baserat innehållssystem och dokumentationsarkitektur** — Genomför projektet i `docs/projects/ai-content-system/README.md`: inventera och migrera dokumentationen, definiera sidtyper, centralisera återkommande layout i komponenter/templates, skapa content models/schemas, standardisera AI-workflows och införa PR/validerings-guardrails så att kunden säkert kan skapa standardsidor via ChatGPT/Claude utan VS Code. Referenser används som första pilot.  
+  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: projektgrund och dokumentationsnav skapade; fas 0–1 ska fortsätta med full inventering och migrationskarta._
 
 ### Aktuellt fokus – mobil
 
@@ -118,7 +123,10 @@ _Inga öppna beslut just nu._
 
 Dessa beslut ska kontrolleras innan samma fråga öppnas på nytt:
 
-- Mobilförbättringar ska följa `src/docs/AVAB-standard-mobil.md` och arbetsflödet i `src/docs/AVAB-mobilinventering.md`.
+- GitHub ska vara gemensam sanningskälla för AVAB:s kod, AI-regler, standarder och workflows.
+- AI-genererade sidändringar ska normalt ske via separat branch och PR, inte direkt mot `main`.
+- Innehåll och presentation ska separeras där det är praktiskt; återkommande sidlayout ska ligga i delade komponenter/templates och inte kopieras mellan sidor.
+- Mobilförbättringar ska följa `src/docs/AVAB-standard-mobil.md` och arbetsflödet i `src/docs/AVAB-mobilinventering.md` under pågående dokumentmigration.
 - Återkommande mobilproblem ska lösas globalt/delat före sidspecifika patchar. Viktigt innehåll ska inte döljas enbart för att lösa en mobil layout.
 - Bilder i `public/assets/` ligger platt utan undermappar; de ska bara vara korrekt omdöpta.
 - Använd generiska motivnamn i filnamn. Ortsnamn hör hemma i alt-text.
