@@ -7,6 +7,8 @@
 
 Detta är det gemensamma ingångsflödet för ChatGPT, Claude, Codex och andra AI-agenter. Det ska först klassificera uppgiften och därefter skicka arbetet till rätt sidtyps-/ändringsworkflow.
 
+När kunden arbetar direkt från mobil eller chat utan lokal utvecklingsmiljö gäller dessutom `docs/workflows/customer-chat-authoring.md`. Chatten är då arbetsgränssnittet; GitHub är fortfarande sanningskällan och branch + PR + validering gäller oförändrat.
+
 ## 1. Klassificera sidtypen
 
 Identifiera först:
@@ -58,6 +60,8 @@ Oavsett route:
 6. valt workflow
 7. faktisk kod/schema/template
 8. `TODO.md` när uppgiften påverkar status, prioritet eller följduppgifter
+
+Vid chatbaserat kundarbete ska `docs/workflows/customer-chat-authoring.md` också läsas för branch-, PR-, risk- och granskningsregler.
 
 ## 5. Separera content från arkitektur
 
@@ -150,7 +154,7 @@ PR:n ska ange:
 - vilka valideringar som passerat,
 - kvarstående mänsklig verifiering.
 
-När schema/build finns ska de passera innan uppgiften kan kallas tekniskt klar.
+När schema/build finns ska de passera innan uppgiften kan kallas tekniskt klar. Grön CI ersätter inte visuell browsergranskning.
 
 ## 12. Definition of Done
 
@@ -167,4 +171,4 @@ En AI-skapad eller ändrad standardsida är inte klar förrän:
 
 ## Målbild
 
-Kunden ska kunna beskriva vad som ska skapas eller ändras i chatten. AI:n ska själv routa uppgiften till rätt sidtyp, samla endast saknad input och producera strukturellt likvärdigt resultat oavsett om klienten är ChatGPT eller Claude.
+Kunden ska kunna beskriva vad som ska skapas eller ändras i chatten. AI:n ska själv routa uppgiften till rätt sidtyp, samla endast saknad input och producera strukturellt likvärdigt resultat oavsett om klienten är ChatGPT eller Claude. VS Code ska inte behövas för normalt structured-content-arbete när sidtypen är implementerad.
