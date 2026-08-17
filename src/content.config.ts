@@ -41,7 +41,11 @@ const referenceSchema = z.object({
 });
 
 const references = defineCollection({
-  loader: glob({ pattern: "**/*.{json,yaml,yml,md}", base: "./src/content/references" }),
+  loader: glob({
+    pattern: "**/*.{json,yaml,yml,md}",
+    base: "./src/content/references",
+    generateId: ({ entry }) => entry.replace(/\.(json|ya?ml|md)$/i, ""),
+  }),
   schema: referenceSchema,
 });
 
