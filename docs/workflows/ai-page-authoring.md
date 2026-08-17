@@ -1,122 +1,170 @@
 # Workflow: AI-skapande av AVAB-sidor
 
 **Status:** Active  
+**Owner:** AVAB-projektet  
+**Scope:** Router för alla publika sidtyper  
 **Last reviewed:** 2026-08-17
 
-Detta workflow beskriver standardflödet när ChatGPT, Claude, Codex eller annan AI ska skapa eller ändra en publik AVAB-sida.
+Detta är det gemensamma ingångsflödet för ChatGPT, Claude, Codex och andra AI-agenter. Det ska först klassificera uppgiften och därefter skicka arbetet till rätt sidtyps-/ändringsworkflow.
 
-## 1. Klassificera uppgiften
+## 1. Klassificera sidtypen
 
-Identifiera först sidtypen:
+Identifiera först:
 
-- reference
-- environment
-- service
-- knowledge
-- special
+- `reference`
+- `environment`
+- `service`
+- `knowledge`
+- `listing`
+- `special`
 
-Om sidtypen inte kan bestämmas från URL, innehåll eller användarens instruktion ska AI läsa befintlig struktur innan den gissar.
+Använd route, sidans syfte och faktisk kod. Välj inte mall enbart för att två sidor ser lika ut.
 
-## 2. Läs rätt regler
+## 2. Klassificera uppgiftstyp
 
-Läs i denna ordning:
+Identifiera därefter om användaren vill:
+
+- skapa en ny sida,
+- uppdatera befintlig sida,
+- migrera legacy-sida till standardarkitektur,
+- ändra design/komponentarkitektur.
+
+## 3. Route till rätt workflow
+
+### Ny eller migrerad Referens
+→ `docs/workflows/create-reference.md`
+
+### Ny Miljö, Tjänst eller Kunskap
+→ `docs/workflows/create-standard-page.md`
+
+### Ändra befintlig sida
+→ `docs/workflows/modify-existing-page.md`
+
+### Special/custom
+→ `docs/workflows/special-page-change.md`
+
+### Listing
+Listing ska normalt konsumera data från underliggande content model. Ändra källdatat framför att skapa dubbla registerposter. Om listingens layout/funktion ska ändras är det utvecklingsarbete.
+
+## 4. Läs gemensamma regler
+
+Oavsett route:
 
 1. `AGENTS.md`
 2. `docs/README.md`
-3. relevant standard i `docs/standards/`
-4. relevant workflow
-5. relevanta arkitekturdokument
-6. `TODO.md` om arbetet påverkar pågående projekt/status
+3. `docs/architecture/page-types.md`
+4. `docs/architecture/ai-write-scope.md`
+5. relevant Active sidstandard
+6. valt workflow
+7. faktisk kod/schema/template
+8. `TODO.md` när uppgiften påverkar status, prioritet eller följduppgifter
 
-## 3. Separera innehåll från designsystem
+## 5. Separera content från arkitektur
 
-Innan kod ändras ska AI avgöra om uppgiften är:
+### Content
+Text, verifierade fakta, strukturerad data, bildreferenser, alt-text, metadata, relationer.
 
-### Innehållsändring
-Normalt: text, strukturerad data, bildreferenser, alt-text, metadata, relationer.
+### Presentation
+Visuell layout, spacing, responsive behavior, komponentvariant.
 
-### Design-/arkitekturändring
-Komponenter, layouts, global CSS, schemas eller nya sidmönster.
+### Architecture
+Schemas, shared components, layouts, global CSS, route-system, CI/build.
 
-En innehållsuppgift får inte tyst expandera till en designsystemändring.
+En contentuppgift får aldrig tyst expandera till presentation eller architecture.
 
-## 4. Kontrollera erforderlig input
+## 6. Samla bara saknad input
 
-AI får formulera och förbättra språk men får inte hitta på projektfakta.
+AI ska återanvända allt användaren redan lämnat. Ställ inte ett standardformulär med frågor som redan är besvarade.
 
-Särskilt känsliga fält:
+Saknad kritisk fakta ska efterfrågas när den blockerar korrekt publicering. Om sidan tekniskt stöder draftläge får osäkert/inkomplett content hållas som draft i stället för att fyllas med gissningar.
 
-- kundnamn
-- årtal
-- teknisk omfattning
-- antal produkter/zoner
-- resultat
-- kundcitat
-- referenskontakt
-- certifieringar eller uppmätta värden
+## 7. Fakta AI inte får hitta på
 
-Saknad kritisk fakta ska markeras eller efterfrågas. AI får använda `draft` tills publiceringskrav är uppfyllda.
+Exempel:
 
-## 5. Återanvänd befintlig modell
+- kundnamn,
+- årtal,
+- priser,
+- antal produkter/zoner/rum,
+- mätvärden,
+- besparingar,
+- kundcitat,
+- certifieringar,
+- garantier,
+- lag-/standardkrav,
+- projektreferenser,
+- resultat som inte stöds av underlaget.
 
-AI ska i första hand använda:
+AI får förbättra formulering, struktur, rubriker, SEO-copy och alt-text så länge faktainnehållet inte ändras.
+
+## 8. Återanvänd faktisk implementation
+
+Prioritetsordning:
 
 1. befintlig content model/schema,
-2. befintlig sidtemplate,
+2. befintlig sidrenderer/template,
 3. befintliga komponenter,
-4. globala styles/tokens.
+4. globala styles/tokens,
+5. ny generell arkitektur först när ett verkligt återanvändningsbehov finns.
 
-Ny lokal markup/CSS är sista utvägen och ska motiveras.
+Ny lokal fullsidig markup/CSS är inte normal lösning för en standardsida.
 
-## 6. SEO, tillgänglighet och bilder
+## 9. Gemensamma metadata-/bildregler
 
 Kontrollera minst:
 
-- unik title och description,
-- canonical under `https://avab.eu/`,
-- en H1,
+- canonical root `https://avab.eu/`,
+- unik SEO-title/description,
+- exakt en H1,
 - korrekt rubrikhierarki,
 - meningsfull alt-text,
-- interna länkar till relevanta sidor,
-- inga påhittade strukturerade data,
-- korrekt bildsökväg och filnamn enligt bildstandarden när den finns.
+- existerande bildreferenser,
+- naturliga interna länkar,
+- strukturerad data baserad på samma verifierade fakta som synligt innehåll,
+- inget `www` som canonical.
 
-## 7. Ändringsscope
+## 10. Normal write-scope
 
-Normal innehållsagent ska undvika ändringar i:
+En vanlig content-agent ska normalt inte ändra:
 
 - `src/components/**`
 - `src/layouts/**`
 - `src/styles/**`
-- build/deployment-konfiguration
+- `src/content.config.ts`
+- build/deploy/CI
+- andra sidtyper eller orelaterade routes
 
-om uppgiften inte uttryckligen kräver utvecklingsarbete.
+utan att arbetet uttryckligen har klassificerats som utveckling/arkitektur.
 
-## 8. Branch och PR
+## 11. Branch, validering och PR
 
-AI-genererade ändringar ska göras i en separat branch och lämnas för granskning via PR. Skriv inte normalt direkt till `main`.
+AI-genererade publika sidändringar ska normalt göras i separat branch och PR, inte direkt i `main`.
 
-PR:n ska förklara:
+PR:n ska ange:
 
-- vilken sidtyp som ändrats,
-- vilket innehåll som lagts till/ändrats,
-- vilka standarder som följts,
-- vilka valideringar som körts,
-- eventuell information som fortfarande behöver mänsklig verifiering.
+- sidtyp,
+- route,
+- create/modify/migrate,
+- content- eller architecture-scope,
+- vilka standarder/workflows som följts,
+- vilka valideringar som passerat,
+- kvarstående mänsklig verifiering.
 
-## 9. Definition of Done
+När schema/build finns ska de passera innan uppgiften kan kallas tekniskt klar.
 
-En AI-skapad sida är inte klar förrän:
+## 12. Definition of Done
 
-- rätt sidtyp och standard har använts,
-- inga fakta har uppfunnits,
-- designen bygger på befintlig modell,
-- metadata och alt-text är kontrollerade,
-- interna länkar är rimliga,
-- build/schema-validering passerar när tillgänglig,
-- ändringen ligger i branch/PR för granskning,
-- eventuella osäkerheter är uttryckligt markerade.
+En AI-skapad eller ändrad standardsida är inte klar förrän:
+
+- rätt sidtyp och workflow använts,
+- inga fakta fabricerats,
+- befintlig modell återanvänts,
+- metadata/bilder/länkar kontrollerats,
+- available schema/build-validering passerar,
+- diffen håller rätt scope,
+- ändringen ligger i branch/PR,
+- osäkerheter är explicit markerade.
 
 ## Målbild
 
-När content architecture-projektet är klart ska detta workflow främst skapa eller ändra strukturerat innehåll. AI ska sällan behöva skriva full Astro-markup för en ny standardsida.
+Kunden ska kunna beskriva vad som ska skapas eller ändras i chatten. AI:n ska själv routa uppgiften till rätt sidtyp, samla endast saknad input och producera strukturellt likvärdigt resultat oavsett om klienten är ChatGPT eller Claude.
