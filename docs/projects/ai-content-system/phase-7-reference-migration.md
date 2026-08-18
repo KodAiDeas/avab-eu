@@ -14,7 +14,7 @@ Den live-publicerade Minnebergsskolan-sidan är nu godkänd designpilot för hur
 
 Det innebär:
 
-**live Minneberg-design → återskapa designmönstren i gemensam datadriven `ReferencePage` → verifiera flera representativa referenser → fortsätt migreringen**
+**live Minneberg-design → återskapa designmönstren i gemensam datadriven `ReferencePage` → verifiera strukturen med Säffle simhall som migrationspilot → fortsätt migreringen**
 
 Inte:
 
@@ -23,6 +23,23 @@ Inte:
 Den tidigare lokala designbranchen behöver därför inte vara blockerande för Fas 7. Om den senare räddas kan den användas som jämförelsematerial, men live-sidan är designmässig source of truth.
 
 Structured-content-arkitekturen, Zod-schemat, AI-workflows, guardrails och branch/PR-flödet ska bevaras.
+
+## Pilotroller
+
+### Minnebergsskolan – designpilot
+Minnebergsskolan definierar den visuella riktningen och vilka återkommande block referenssystemet måste kunna uttrycka. Den används för att forma den gemensamma datadrivna renderern.
+
+### Säffle simhall – migrationspilot
+När Minnebergsskolan fungerar visuellt och tekniskt i structured-content-arkitekturen ska **Säffle simhall vara första riktiga pilot för migrering av en annan referens**.
+
+Säffle används för att verifiera att:
+- modellen är generell och inte Minneberg-hårdkodad,
+- en annan miljö och annan teknisk leverans kan uttryckas med samma renderer,
+- innehållet kan migreras utan ny sidspecifik CSS,
+- befintlig URL, SEO, verifierade fakta och bilder kan bevaras,
+- desktop och mobil håller samma visuella standard.
+
+Ingen bredare referensmigrering ska starta förrän Säffle-piloten är visuellt och tekniskt godkänd.
 
 ## Fas 7A – Återskapa live-designen i structured-content-arkitekturen
 
@@ -38,17 +55,17 @@ Göra Minnebergsskolan till första både tekniskt och visuellt godkända struct
 6. Bevara centraliserad SEO, canonical `https://avab.eu/`, FAQ/schema, breadcrumbs och verifierade fakta från structured-content-systemet.
 7. Kör `npm run validate`.
 8. Visuellt jämför structured Minneberg mot live-piloten på desktop och mobil.
-9. Testa därefter minst två representativa referenser, exempelvis Säffle och Hanza/Sörby, så att layouten bevisas generell och inte Minneberg-hårdkodad.
+9. Kör därefter Säffle simhall som första riktiga migrationspilot för att bevisa att samma struktur fungerar på en annan referenstyp.
 
 ### Stoppregel
-Inga ytterligare legacy-referenser får migreras under Fas 7A.
+Inga ytterligare legacy-referenser får migreras under Fas 7A utöver den uttryckligen beslutade Säffle-piloten efter att Minneberg är godkänd.
 
 De redan tekniskt migrerade referenserna får användas som regressionstest men inte betraktas som visuellt godkända förrän den nya gemensamma designen är på plats.
 
 ### Exit criterion Fas 7A
 - Structured Minneberg följer live-designen tillräckligt nära på desktop och mobil.
 - Ingen fullsidig Minneberg-specifik CSS/markup har kopierats in som standardlösning.
-- Minst två andra migrated references fungerar med samma renderer.
+- Säffle simhall fungerar som visuellt och tekniskt godkänd migrationspilot med samma renderer.
 - `npm run validate` passerar.
 
 ## Exit criterion Fas 7 Referenser
@@ -68,7 +85,7 @@ Fas 7 för sidtypen `reference` är inte klar förrän alla aktiva referenser an
 
 ### Migrerade tekniskt – 6 av 14
 - `minnebergsskolan-arvika` – pilot från Fas 3; ska nu göras visuellt lik live-designen.
-- `saffle-simhall` – Fas 7 våg 1.
+- `saffle-simhall` – tekniskt migrerad tidigare; ska användas som första riktiga migrationspilot efter godkänd Minneberg-design.
 - `sannerudshallen-kil` – Fas 7 våg 1; bildmotiv måste fortfarande visuellt verifieras.
 - `hanza-konferens-tocksfors` – Fas 7 våg 1.
 - `hundfjallshotellet-hundfjallscenter-salen` – Fas 7 våg 2.
@@ -100,4 +117,4 @@ Efter migrering av Hundfjäll och Sörby passerade run 33 hela `npm run validate
 
 ## Nästa steg
 
-Nästa implementation är Fas 7A: porta live Minneberg-designen till den gemensamma structured-content-renderern. Först därefter återupptas migreringen av de återstående åtta referenserna.
+Nästa implementation är Fas 7A: porta live Minneberg-designen till den gemensamma structured-content-renderern. När Minneberg är visuellt godkänd används Säffle simhall som första riktiga migrationspilot. Först efter godkänd Säffle-pilot återupptas bredare migrering av återstående referenser.
