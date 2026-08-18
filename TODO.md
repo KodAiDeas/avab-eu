@@ -3,7 +3,7 @@
 > **Projektets enda levande att-göra-lista.**
 > Här samlas uppgifter, idéer som ska följas upp, blockerare och beslut som annars riskerar att glömmas bort.
 
-**Senast uppdaterad:** 2026-08-17  
+**Senast uppdaterad:** 2026-08-18  
 **Tidigare fil:** `src/docs/att-gora-lista.md`
 
 ---
@@ -51,7 +51,7 @@ AI:n ansvarar då för ID, datum, placering, dubblettkontroll och struktur.
 ### Aktuellt fokus – AI/content architecture
 
 - [ ] **AVAB-013 · P1 · Bygg AI-baserat innehållssystem och dokumentationsarkitektur** — Genomför projektet i `docs/projects/ai-content-system/README.md`: definiera sidtyper, centralisera återkommande layout i komponenter/templates, skapa content models/schemas, standardisera AI-workflows och införa PR/validerings-guardrails så att kunden säkert kan skapa standardsidor via ChatGPT/Claude utan VS Code. Referenser används som första pilot.  
-  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0–6 genomförda som baseline. Fas 7 pågår för Referenser: 6 av 14 aktiva referenser är migrerade till Astro Content Collection + gemensam `ReferencePage.astro` (Minneberg, Säffle, Sannerud, Hanza, Hundfjäll och Sörby). `npm run validate` passerar efter våg 2 (GitHub Actions run 33). Åtta referenser återstår; flera har legacy-bildnamn som inte finns i dagens `public/assets` och ska inte gissningsmappas. Se `docs/projects/ai-content-system/phase-7-reference-migration.md`. Visuell regression krävs före merge och innan sidtypen Referens kan markeras klar._
+  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0–6 genomförda som baseline. Fas 7 pågår för Referenser. 6 av 14 aktiva referenser är tekniskt migrerade, men fortsatt massmigrering är pausad. Live-sidan `https://test2.avab.eu/referenser/minnebergsskolan-arvika/` är nu godkänd visuell source of truth. Fas 7A ska först återskapa den designen i den gemensamma structured-content-arkitekturen, därefter testa minst två representativa referenser. Först sedan får resterande åtta migreras. Se `docs/projects/ai-content-system/phase-7-reference-migration.md` och `phase-7a-reference-design-reconciliation.md`._
 
 - [ ] **AVAB-015 · P2 · Lägg till unik preview per PR** — Gör mobil/chat-granskningen komplett genom att ge varje relevant PR en unik preview-URL utan att deploya över `test2.avab.eu`. Preview ska skapas automatiskt för PR, vara tydligt separerad från production/main och kunna tas bort efter stängd PR.  
   _Tillagd: 2026-08-17 · Källa: Fas 6 kundworkflow · Status: UX-/infrastrukturförbättring; grön CI finns redan men ersätter inte visuell preview._
@@ -115,7 +115,8 @@ _Inga punkter just nu._
 
 ## Blockerat
 
-- **Fas 7 Referenser – återstående 8 sidor:** flera legacy-sidor refererar projektspecifika bildfilnamn som inte finns i dagens `public/assets`. Exakt bildmappning ska spåras eller visuellt verifieras innan de migreras; AI får inte välja en liknande bild på chans. Se `docs/projects/ai-content-system/phase-7-reference-migration.md`.
+- **Fas 7A Referenser – design gate:** fortsatt massmigrering är pausad tills structured Minneberg följer den godkända live-designen på desktop och mobil och minst två ytterligare referenser fungerar med samma renderer utan specialhack.
+- **Fas 7B Referenser – återstående 8 sidor:** flera legacy-sidor refererar projektspecifika bildfilnamn som inte finns i dagens `public/assets`. Exakt bildmappning ska spåras eller visuellt verifieras innan de migreras; AI får inte välja en liknande bild på chans.
 
 ---
 
@@ -130,6 +131,7 @@ _Inga öppna beslut just nu._
 Dessa beslut ska kontrolleras innan samma fråga öppnas på nytt:
 
 - GitHub ska vara gemensam sanningskälla för AVAB:s kod, AI-regler, standarder och workflows.
+- För Referenser under Fas 7 är `https://test2.avab.eu/referenser/minnebergsskolan-arvika/` visuell source of truth; `agent/ai-content-system` är teknisk/arkitekturell source of truth. De ska förenas innan fortsatt massmigrering.
 - Chat/mobil är ett godkänt arbetsgränssnitt för normalt content-arbete när sidtypen har implementerad structured-content-modell; VS Code är inte ett krav. Samma branch-, scope-, validerings- och PR-regler gäller ändå.
 - AI-genererade sidändringar ska normalt ske via separat branch och PR, inte direkt mot `main`.
 - Innehåll och presentation ska separeras där det är praktiskt; återkommande sidlayout ska ligga i delade komponenter/templates och inte kopieras mellan sidor.
