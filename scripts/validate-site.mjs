@@ -19,6 +19,14 @@ function existsPublicPath(value) {
   return fs.existsSync(path.join(root, "public", value.replace(/^\//, "")));
 }
 
+function normalizeInternalRoute(value) {
+  if (!value || !value.startsWith("/") || value.startsWith("/assets/")) return null;
+  const pathname = value.split(/[?#]/, 1)[0];
+  if (!pathname) return null;
+  if (pathname === "/") return "/";
+  return pathname.endsWith("/") ? pathname : `${pathname}/`;
+}
+
 function routeFromPage(file) {
   let rel = file.replace(/^src\/pages\//, "").replace(/\\/g, "/");
   if (!/\.(astro|md|mdx)$/.test(rel)) return null;
@@ -56,7 +64,24 @@ for (const file of walk(referenceDir).filter((f) => f.endsWith(".json"))) {
     fail(`${rel}: published reference requires customer.publicationApproved=true`);
   }
 
-  const images = [data.heroImage, ...(Array.isArray(data.gallery) ? data.gallery : [])].filter(Boolean);
+  if (data.layout === "case-study" && (!Array.isArray(data.sections) || data.sections.length === 0)) {
+    fail(`${rel}: case-study layout requires at least one structured section`);
+  }
+
+  const sectionImages = Array.isArray(data.sections)
+    ? data.sections.flatMap((section) => {
+        if (section?.type === "mediaText" && section.image) return [section.image];
+        if (section?.type === "gallery" && Array.isArray(section.images)) return section.images;
+        return [];
+      })
+    : [];
+
+  const images = [
+    data.heroImage,
+    ...(Array.isArray(data.gallery) ? data.gallery : []),
+    ...sectionImages,
+  ].filter(Boolean);
+
   for (const image of images) {
     if (!image.src || !existsPublicPath(image.src)) {
       fail(`${rel}: image does not exist in public/: ${image.src ?? "<missing>"}`);
@@ -66,13 +91,24 @@ for (const file of walk(referenceDir).filter((f) => f.endsWith(".json"))) {
     }
   }
 
+  const actionLinks = [
+    ...(Array.isArray(data.heroActions) ? data.heroActions.map((x) => x.href) : []),
+    ...(Array.isArray(data.closingCta?.actions) ? data.closingCta.actions.map((x) => x.href) : []),
+  ];
+
   const links = [
     ...(Array.isArray(data.relatedServices) ? data.relatedServices.map((x) => x.href) : []),
     ...(Array.isArray(data.relatedReferences) ? data.relatedReferences : []),
+    ...actionLinks,
   ].filter(Boolean);
 
   for (const href of links) {
-    if (href.startsWith("/") && !href.startsWith("/assets/") && !routes.has(href)) {
+    if (href.includes("https://www.avab.eu")) {
+      fail(`${rel}: canonical/internal links must use https://avab.eu/ instead of www alias: ${href}`);
+      continue;
+    }
+    const route = normalizeInternalRoute(href);
+    if (route && !routes.has(route)) {
       fail(`${rel}: internal route does not exist: ${href}`);
     }
   }
