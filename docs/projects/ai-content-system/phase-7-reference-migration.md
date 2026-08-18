@@ -1,14 +1,57 @@
 # Fas 7 – Migrering av Referenser
 
-**Status:** In progress  
+**Status:** In progress – design reconciliation first  
 **Owner:** AVAB-projektet  
 **Branch:** `agent/ai-content-system`  
-**Last reviewed:** 2026-08-17
+**Last reviewed:** 2026-08-18
 
 ## Mål
 Migrera befintliga referenssidor från stora sidspecifika `index.astro`-filer till `src/content/references/*` + gemensam `ReferencePage.astro`, utan URL-byte eller ny lokal sid-CSS.
 
-## Exit criterion
+## Visuell source of truth
+
+Den live-publicerade Minnebergsskolan-sidan är nu godkänd designpilot för hur AVAB:s referenssidor ska se ut.
+
+Det innebär:
+
+**live Minneberg-design → återskapa designmönstren i gemensam datadriven `ReferencePage` → verifiera flera representativa referenser → fortsätt migreringen**
+
+Inte:
+
+**nuvarande generiska `ReferencePage` → migrera alla legacy-sidor → rätta designen senare**
+
+Den tidigare lokala designbranchen behöver därför inte vara blockerande för Fas 7. Om den senare räddas kan den användas som jämförelsematerial, men live-sidan är designmässig source of truth.
+
+Structured-content-arkitekturen, Zod-schemat, AI-workflows, guardrails och branch/PR-flödet ska bevaras.
+
+## Fas 7A – Återskapa live-designen i structured-content-arkitekturen
+
+### Mål
+Göra Minnebergsskolan till första både tekniskt och visuellt godkända structured-content-referensen.
+
+### Arbetsordning
+1. Inventera live Minnebergsskolan visuellt och strukturellt.
+2. Identifiera återkommande designmönster: breadcrumb, hero, fakta, sektioner, boxar, media/text, färgväxling, FAQ, CTA och relaterat innehåll.
+3. Jämför live-designen med nuvarande `ReferencePage.astro` och reference-komponenter i `agent/ai-content-system`.
+4. Flytta generella designmönster till gemensamma reference-komponenter/primitives i stället för att kopiera hela live-sidans markup.
+5. Anpassa content-schemat endast när live-designen visar ett verkligt återkommande strukturerat behov som dagens schema inte kan uttrycka.
+6. Bevara centraliserad SEO, canonical `https://avab.eu/`, FAQ/schema, breadcrumbs och verifierade fakta från structured-content-systemet.
+7. Kör `npm run validate`.
+8. Visuellt jämför structured Minneberg mot live-piloten på desktop och mobil.
+9. Testa därefter minst två representativa referenser, exempelvis Säffle och Hanza/Sörby, så att layouten bevisas generell och inte Minneberg-hårdkodad.
+
+### Stoppregel
+Inga ytterligare legacy-referenser får migreras under Fas 7A.
+
+De redan tekniskt migrerade referenserna får användas som regressionstest men inte betraktas som visuellt godkända förrän den nya gemensamma designen är på plats.
+
+### Exit criterion Fas 7A
+- Structured Minneberg följer live-designen tillräckligt nära på desktop och mobil.
+- Ingen fullsidig Minneberg-specifik CSS/markup har kopierats in som standardlösning.
+- Minst två andra migrated references fungerar med samma renderer.
+- `npm run validate` passerar.
+
+## Exit criterion Fas 7 Referenser
 Fas 7 för sidtypen `reference` är inte klar förrän alla aktiva referenser använder samma structured-content-modell och gemensamma renderer, build/guardrails passerar och visuell regression har genomförts på representativa desktop- och mobilvyer.
 
 ## Migreringsprincip
@@ -23,13 +66,15 @@ Fas 7 för sidtypen `reference` är inte klar förrän alla aktiva referenser an
 
 ## Statusmatris
 
-### Migrerade och tekniskt validerade – 6 av 14
-- `minnebergsskolan-arvika` – pilot från Fas 3.
+### Migrerade tekniskt – 6 av 14
+- `minnebergsskolan-arvika` – pilot från Fas 3; ska nu göras visuellt lik live-designen.
 - `saffle-simhall` – Fas 7 våg 1.
-- `sannerudshallen-kil` – Fas 7 våg 1. Legacy-bildnamnet saknades i `public/assets`; content entry använder den befintliga generiska ishall-asseten `ishall-interior-hogtalare-hero.webp`. Visuell kontroll av att motivet är rätt krävs innan merge.
+- `sannerudshallen-kil` – Fas 7 våg 1; bildmotiv måste fortfarande visuellt verifieras.
 - `hanza-konferens-tocksfors` – Fas 7 våg 1.
-- `hundfjallshotellet-hundfjallscenter-salen` – Fas 7 våg 2. Använder verifierad befintlig asset `fjallanlaggning-vinterkvall.webp`.
-- `sorby-sporthall-kumla` – Fas 7 våg 2. Använder verifierad befintlig asset `sporthall-interior-linjer.webp`.
+- `hundfjallshotellet-hundfjallscenter-salen` – Fas 7 våg 2.
+- `sorby-sporthall-kumla` – Fas 7 våg 2.
+
+Dessa sex är tekniskt kompatibla med structured-content-systemet men ska inte räknas som visuellt godkända förrän Fas 7A är klar.
 
 ### Återstår – 8 av 14
 - `arjangs-simhall`
@@ -43,38 +88,16 @@ Fas 7 för sidtypen `reference` är inte klar förrän alla aktiva referenser an
 
 ## Bildmappning som blockerar säker massmigrering
 
-Flera återstående legacy-sidor pekar fortfarande på projektspecifika filnamn som inte finns i dagens `public/assets`, exempelvis Årjäng, Ekhagsskolan, Nordic Wellness, Claessons, Kroppkärr, Lesjöfors och Lundsberg. Detta får inte lösas genom att AI väljer en semantiskt liknande generisk bild på känsla.
+Flera återstående legacy-sidor pekar fortfarande på projektspecifika filnamn som inte finns i dagens `public/assets`. Detta får inte lösas genom att AI väljer en semantiskt liknande generisk bild på känsla.
 
 Bildstruktureringen i commit `6d4420f1e47e6b2e0b9f2f3955a3c21d11dd49a6` visar att 39 assets döptes om och 295 referenser uppdaterades över 42 filer. Den verifierar flera säkra mappningar, bland annat Säffle → `tegelbyggnad-glasfasad-entre.webp`, Minneberg → `modern-trafasad-innergard.webp`, Hundfjäll → `fjallanlaggning-vinterkvall.webp`, Sörby → `sporthall-interior-linjer.webp` och Hanza → `konferensrum-stor-skarm-bord.webp`. De återstående projektspecifika namnen måste spåras separat eller visuellt verifieras.
 
-## Teknisk verifiering
+## Teknisk verifiering hittills
 
-GitHub Actions `Validate pull request` run 27 stoppade först migreringen eftersom `/assets/sannerudshallen-fardig-ljudinstallation.jpg` inte finns i `public/assets/`. Detta bekräftar att guardrailen fungerar och att legacy-filreferenser inte kan kopieras okontrollerat.
-
-Efter korrigerad assetreferens passerade run 28 hela `npm run validate`, inklusive guardrails och Astro build.
+GitHub Actions `Validate pull request` run 27 stoppade först migreringen på en saknad legacy-asset. Efter korrigering passerade run 28 hela `npm run validate`.
 
 Efter migrering av Hundfjäll och Sörby passerade run 33 hela `npm run validate`. Därmed är de sex nuvarande structured-content-referenserna tekniskt kompatibla med schema, guardrails och build.
 
-## Visuell regression
+## Nästa steg
 
-Visuell regression är fortfarande obligatorisk innan bred utrullning/merge. Grön CI verifierar struktur och build men inte att bildval, linjering, höjder, rytm och mobilpresentation är visuellt godkända.
-
-Minst följande ska granskas när preview/dev-server finns:
-- Minnebergsskolan – skolreferens med många sektioner.
-- Säffle simhall – styrsystem/simhall.
-- Sannerudshallen – ishall och korrigerad hero-asset.
-- Hanza – konferens/BYOD.
-- Hundfjäll – stor hotell-/zoninstallation.
-- Sörby – delbar sporthall.
-
-## Nästa migreringsvåg
-
-Fortsätt de resterande åtta först när deras bildreferenser är säkert mappade. Varje våg ska:
-1. läsa legacy-sidan,
-2. mappa endast verifierat innehåll,
-3. spåra och kontrollera faktisk asset,
-4. ersätta routefilen med tunn loader,
-5. köra `npm run validate`,
-6. dokumentera avvikelser som kräver visuell eller mänsklig kontroll.
-
-Först när samtliga referenser är migrerade och representativ visuell regression är godkänd får `reference` markeras färdig i Fas 7. Därefter kan nästa sidtyp migreras.
+Nästa implementation är Fas 7A: porta live Minneberg-designen till den gemensamma structured-content-renderern. Först därefter återupptas migreringen av de återstående åtta referenserna.
