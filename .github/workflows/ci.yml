@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  astro-ci:
+    uses: KodAiDeas/github-workflows/.github/workflows/astro-ci.yml@v1
+    with:
+      node-version: "222.12.0"
+      working-directory: "."
+      build-command: npm run build
+      artifact-path: dist/
+      artifact-name: avab-eu-dist
