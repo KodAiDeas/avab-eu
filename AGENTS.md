@@ -2,6 +2,15 @@
 
 Det här dokumentet gäller för Codex och andra AI-agenter som arbetar i AVAB-repot.
 
+## Startpunkt för projektkunskap
+
+- Läs `docs/README.md` som officiellt index och regelhierarki för projektets dokumentation.
+- Identifiera uppgiftens sidtyp/scope och läs bara relevanta Active-standarder, workflows och arkitekturdokument.
+- Dokument under `src/docs/` är Deprecated efter dokumentmigreringen och får inte behandlas som gällande standard. Följ deras ersättningslänk om en gammal referens leder dit.
+- Vid arbete med nya eller ändrade publika sidor: följ `docs/workflows/ai-page-authoring.md`.
+- Vid mobilgranskning: följ `docs/standards/global/mobile.md` och `docs/workflows/mobile-qa.md`.
+- Vid referensarbete: följ `docs/standards/pages/reference.md`.
+
 ## Gemensam källa för öppet arbete
 
 - `TODO.md` är projektets **enda levande att-göra-lista** och ska behandlas som projektets minne för öppna uppgifter.
@@ -33,12 +42,17 @@ Om prioritet eller rätt sektion inte går att avgöra utan antaganden, använd 
 - Gamla siffror, branches, PR-statusar eller inventeringar ska verifieras mot aktuellt repo innan de används som sanning.
 - Om en tydlig, beslutad följduppgift uppstår under arbetet och ska göras senare, lägg in den i `TODO.md` innan uppgiften avslutas.
 
-## Projektets övriga dokumentation
+## Projektets dokumentation
 
-- Läs relevanta standarder i `src/docs/` före större ändringar av design, innehåll, struktur eller arbetsflöde.
+- Följ regelhierarkin i `docs/README.md`.
+- Läs relevanta Active-standarder före större ändringar av design, innehåll, struktur eller arbetsflöde.
 - Respektera dokumenterade beslut och undvik att återöppna dem utan ny information.
 - Om nya instruktioner kolliderar med tidigare beslut, flagga konflikten tydligt.
+- En innehållsuppgift får inte tyst expandera till en design-/arkitekturändring.
+- Följ `docs/architecture/ai-write-scope.md` för normal innehållsagent.
+- Återanvänd komponenter, schemas och content models före ny sidspecifik markup/CSS.
+- Faktisk kod är sanningskälla för vad som är implementerat; Draft-arkitektur är inte samma sak som färdig funktion.
 
 ## Målet
 
-Håll `TODO.md` tillräckligt komplett för att inget viktigt tappas bort, men tillräckligt ren för att nästa prioritet alltid ska gå att förstå snabbt.
+Håll `TODO.md` tillräckligt komplett för att inget viktigt tappas bort och dokumentationen tillräckligt entydig för att människor, ChatGPT, Claude och andra agenter kan följa samma system.

@@ -1,0 +1,56 @@
+{
+  "pageType": "reference",
+  "status": "published",
+  "slug": "/referenser/saffle-simhall/",
+  "title": "Säffle simhall – en knapp öppnar hela anläggningen",
+  "shortTitle": "Säffle simhall",
+  "eyebrow": "Referens · Simhall",
+  "summary": "AVAB projekterade och installerade ett överordnat Crestronsystem, zonindelat ljud, hörslingor, mikrofoner, projektor och styrning av RGB-belysning i Säffle simhall.",
+  "featured": true,
+  "publishedDate": "2026-06-23",
+  "updatedDate": "2026-06-23",
+  "customer": { "publicDisplay": "Säffle simhall", "publicationApproved": true },
+  "location": { "publicDisplay": "Säffle" },
+  "environments": ["simhall"],
+  "technologies": ["ljud", "styrsystem", "crestron", "ljus", "horslinga", "mikrofoner", "bild", "projektering"],
+  "role": "Full projektering och installation av AV-teknik",
+  "scope": "Överordnat Crestronsystem, zonindelat ljud, trådlösa mikrofoner, hörslingor, projektor och styrning av RGB-belysning.",
+  "needs": "Simhallen behövde samla många tekniska funktioner i ett gemensamt och lättanvänt driftgränssnitt samt kunna styra ljudet separat i olika verksamhetszoner.",
+  "responsibility": "AVAB ansvarade för projektering och installation av AV-tekniken och integrerade ljud, mikrofoner, hörslingor, projektor, miljöbelysning och driftfunktioner i Crestronsystemet.",
+  "result": "Öppning, stängning, grundvolymer, zonljud, DMX-styrt miljöljus samt information om larm och dörrstatus kan hanteras från ett samlat gränssnitt.",
+  "facts": [
+    { "label": "Plats", "value": "Säffle" },
+    { "label": "Miljö", "value": "Simhall" },
+    { "label": "Styrsystem", "value": "Crestron" },
+    { "label": "Ljud", "value": "Zonindelat" },
+    { "label": "Tidsbesparing", "value": "ca 365–487 timmar/år" }
+  ],
+  "heroImage": { "src": "/assets/tegelbyggnad-glasfasad-entre.webp", "alt": "Säffle simhall med zonindelat ljud och Crestronstyrning från AVAB" },
+  "scopeItems": [
+    { "label": "01", "title": "Central styrning", "text": "Crestronsystemet samlar öppning, stängning, belysning, grundvolymer samt information om larm och dörrstatus." },
+    { "label": "02", "title": "Zonindelat ljud", "text": "Musik, mikrofoner och volym kan anpassas för olika delar av anläggningen och efter verksamheten i respektive zon." },
+    { "label": "03", "title": "Tillgänglighet", "text": "Hörslingor integrerades som en del av anläggningens tekniska lösning och samordnades tidigt i projektet." },
+    { "label": "04", "title": "Bild och miljöljus", "text": "Projektor och RGB-belysning ingår i den samlade tekniska lösningen och kan styras tillsammans med övriga funktioner." }
+  ],
+  "detailSections": [
+    { "eyebrow": "Drift", "title": "En knapp ersätter manuella rundor", "text": "De tidigare manuella rundorna tog cirka 30–40 minuter vid öppning och lika lång tid vid stängning. Vid daglig drift motsvarar det cirka 365–487 arbetstimmar per år.", "bullets": ["Öppning och stängning", "KNX-belysning", "Grundvolymer", "DMX-styrt miljöljus", "Larm- och dörrstatus"] },
+    { "eyebrow": "Ljud", "title": "Ljud efter verksamhetszon", "text": "Ljudet är uppdelat för bland annat 50-metersbassängen, läktarna, barnpoolen, relaxen, multihallen, loungen samt receptionen och caféet.", "bullets": ["50-metersbassäng", "Läktare", "Barnpool och relax", "Multihall och lounge", "Reception och café"] },
+    { "eyebrow": "Projektering", "title": "AV-tekniken måste in tidigt", "text": "Rör, kabelvägar, högtalarinfästningar och hörslingor behöver ofta gjutas in eller samordnas innan betong, golv och tak färdigställs.", "bullets": ["Kabelvägar", "Högtalarinfästningar", "Hörslingor", "Samordning före färdiga ytskikt"] }
+  ],
+  "gallery": [{ "src": "/assets/tegelbyggnad-glasfasad-entre.webp", "alt": "Säffle simhall med zonindelat ljud och Crestronstyrning från AVAB" }],
+  "faq": [
+    { "question": "Vad levererade AVAB till Säffle simhall?", "answer": "AVAB ansvarade för full projektering och installation av AV-tekniken med överordnat Crestronsystem, zonindelat ljud, trådlösa mikrofoner, hörslingor, projektor och styrning av RGB-belysning." },
+    { "question": "Hur fungerar det överordnade styrsystemet i Säffle simhall?", "answer": "Crestronsystemet samlar öppning och stängning, KNX-belysning, grundvolymer, DMX-styrt miljöljus, zonindelat ljud samt information om larm och dörrstatus i ett gemensamt gränssnitt." },
+    { "question": "Hur mycket arbetstid kan central styrning spara i en simhall?", "answer": "I Säffle tog de manuella rundorna cirka 30–40 minuter vid öppning och lika lång tid vid stängning. Vid daglig drift motsvarar det cirka 365–487 arbetstimmar per år." },
+    { "question": "Hur är ljudet zonindelat i Säffle simhall?", "answer": "Ljudet är uppdelat för 50-metersbassängen, läktarna, barnpoolen, relaxen, multihallen, loungen samt receptionen och caféet. Musik, mikrofoner och volym kan anpassas efter verksamheten i respektive zon." },
+    { "question": "Varför måste AV-tekniken projekteras tidigt i en simhall?", "answer": "Rör, kabelvägar, högtalarinfästningar och hörslingor behöver ofta gjutas in eller samordnas innan betong, golv och tak färdigställs. Sena beslut kan därför ge dyrare och sämre lösningar." }
+  ],
+  "relatedServices": [
+    { "label": "Ljudsystem", "href": "/tjanster/ljudsystem/" },
+    { "label": "Hörslinga", "href": "/tjanster/horslinga/" },
+    { "label": "Styrsystem & integration", "href": "/tjanster/styrsystem-integration/" },
+    { "label": "Projektering", "href": "/tjanster/projektering/" }
+  ],
+  "relatedReferences": ["/referenser/arjangs-simhall/"],
+  "seo": { "title": "Säffle simhall – Crestron, ljud och hörslinga | Referens | AVAB", "description": "Referensprojekt: AVAB projekterade och installerade Crestronstyrning, zonindelat ljud, hörslingor, mikrofoner, projektor och RGB-belysning i Säffle simhall.", "noindex": false }
+}

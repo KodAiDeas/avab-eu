@@ -1,6 +1,7 @@
 ---
 // Ett helt klickbart referenskort för översikten på /referenser/.
-// data-attributen används av filtreringen på sidan.
+// Under migration används content collection när en motsvarande entry finns.
+import { getEntry } from "astro:content";
 import type { Reference, FilterOption } from "../data/referenser";
 
 interface Props {
@@ -10,42 +11,55 @@ interface Props {
 }
 
 const { reference, environments, technologies } = Astro.props;
+const contentId = reference.slug.replace(/^\/referenser\//, "").replace(/\/$/, "");
+const contentEntry = contentId ? await getEntry("references", contentId) : undefined;
 
-const envLabels = reference.environments
+const effectiveReference: Reference = contentEntry ? {
+  title: contentEntry.data.shortTitle,
+  slug: contentEntry.data.slug,
+  location: contentEntry.data.location.publicDisplay,
+  image: contentEntry.data.heroImage.src,
+  imageAlt: contentEntry.data.heroImage.alt,
+  excerpt: contentEntry.data.summary,
+  environments: contentEntry.data.environments,
+  technologies: contentEntry.data.technologies,
+  featured: contentEntry.data.featured,
+} : reference;
+
+const envLabels = effectiveReference.environments
   .map((id) => environments.find((e) => e.id === id)?.label)
   .filter(Boolean) as string[];
 
-const techLabels = reference.technologies
+const techLabels = effectiveReference.technologies
   .map((id) => technologies.find((t) => t.id === id)?.label)
   .filter(Boolean) as string[];
 
-// Visa som mest fyra teknikpiller på kortet, resten sammanfattas.
 const shownTech = techLabels.slice(0, 4);
 const extraTech = techLabels.length - shownTech.length;
 ---
 
 <a
   class="ref-card ref-filter-card"
-  href={reference.slug}
-  data-environments={reference.environments.join(" ")}
-  data-technologies={reference.technologies.join(" ")}
-  data-title={reference.title.toLowerCase()}
-  data-location={reference.location.toLowerCase()}
-  data-excerpt={reference.excerpt.toLowerCase()}
-  data-featured={reference.featured ? "true" : "false"}
+  href={effectiveReference.slug}
+  data-environments={effectiveReference.environments.join(" ")}
+  data-technologies={effectiveReference.technologies.join(" ")}
+  data-title={effectiveReference.title.toLowerCase()}
+  data-location={effectiveReference.location.toLowerCase()}
+  data-excerpt={effectiveReference.excerpt.toLowerCase()}
+  data-featured={effectiveReference.featured ? "true" : "false"}
 >
   <img
-    src={reference.image}
-    alt={reference.imageAlt}
+    src={effectiveReference.image}
+    alt={effectiveReference.imageAlt}
     width="900"
     height="600"
     loading="lazy"
     decoding="async"
   />
   <div class="ref-content">
-    <span class="ref-meta">{envLabels[0]}{reference.location ? ` · ${reference.location}` : ""}</span>
-    <h3>{reference.title}</h3>
-    <p>{reference.excerpt}</p>
+    <span class="ref-meta">{envLabels[0]}{effectiveReference.location ? ` · ${effectiveReference.location}` : ""}</span>
+    <h3>{effectiveReference.title}</h3>
+    <p>{effectiveReference.excerpt}</p>
     {shownTech.length > 0 && (
       <ul class="ref-pills" aria-label="Teknik i projektet">
         {shownTech.map((label) => <li>{label}</li>)}

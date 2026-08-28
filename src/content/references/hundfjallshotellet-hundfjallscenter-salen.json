@@ -1,0 +1,58 @@
+{
+  "pageType": "reference",
+  "status": "published",
+  "slug": "/referenser/hundfjallshotellet-hundfjallscenter-salen/",
+  "title": "Hundfjällshotellet Sälen – 494 högtalare i 28 ljudzoner",
+  "shortTitle": "Hundfjällshotellet & Hundfjällscenter",
+  "eyebrow": "Referens · Hotell",
+  "summary": "AVAB projekterade ljudspridningen med EASE och installerade 494 högtalare i 28 appstyrda ljudzoner, Dante, konferensteknik och SLS-hörslinga i Hundfjällshotellet och Hundfjällscenter.",
+  "featured": true,
+  "publishedDate": "2026-07-08",
+  "updatedDate": "2026-07-08",
+  "customer": { "publicDisplay": "Hundfjällshotellet & Hundfjällscenter", "publicationApproved": true },
+  "location": { "publicDisplay": "Sälen" },
+  "environments": ["hotell", "kontor-konferens", "restaurang-bar-klubb", "gym"],
+  "technologies": ["ljud", "dante", "horslinga", "konferens", "bakgrundsmusik", "projektering", "mikrofoner"],
+  "role": "Projektering och installation av ljud- och konferensteknik",
+  "scope": "EASE-projektering, 494 högtalare i 28 appstyrda ljudzoner, Dante mellan husen, fem konferensrum, trådlösa mikrofoner och SLS-hörslinga.",
+  "needs": "Anläggningen behövde jämn ljudtäckning över många olika miljöer och verksamheter, separat styrning av zoner samt möjlighet att koppla samman ljud mellan hotellet och Hundfjällscenter.",
+  "responsibility": "AVAB projekterade ljudspridningen, installerade högtalare och zonstyrning, byggde konferensteknik och hörslinga samt kopplade samman husen med Dante över nätverket.",
+  "result": "Anläggningen fick 28 separat styrbara ljudzoner med jämn ljudmatta, tidsstyrd musik och möjlighet att distribuera digitalt ljud mellan husen och till konferensytor.",
+  "facts": [
+    { "label": "Plats", "value": "Sälen" },
+    { "label": "Högtalare", "value": "494 st" },
+    { "label": "Ljudzoner", "value": "28 st" },
+    { "label": "Konferensrum", "value": "5 st" },
+    { "label": "Distribution", "value": "Dante mellan husen" }
+  ],
+  "heroImage": { "src": "/assets/fjallanlaggning-vinterkvall.webp", "alt": "Hundfjällshotellet i Sälen med pendlade högtalare och ljudinstallation från AVAB" },
+  "scopeItems": [
+    { "label": "01", "title": "494 högtalare", "text": "Många noggrant placerade högtalare skapar en jämn ljudmatta utan starka punkter och volymdippar." },
+    { "label": "02", "title": "28 ljudzoner", "text": "Varje zon kan styras separat i app och musik, tempo och volym kan följa tidsschema och verksamhet." },
+    { "label": "03", "title": "Konferens", "text": "Fem konferensrum ingår i leveransen, inklusive ett större rum med SLS-hörslinga." },
+    { "label": "04", "title": "Dante mellan husen", "text": "Digitalt ljud kan skickas mellan Hundfjällscenter och hotellet över nätverket och distribueras till valda zoner." }
+  ],
+  "detailSections": [
+    { "eyebrow": "Projektering", "title": "Jämn ljudmatta i många olika miljöer", "text": "EASE-projektering användes för att planera ljudspridningen. Många högtalare kan då arbeta på lägre nivå och ge jämnare täckning i stället för få starka ljudkällor.", "bullets": ["EASE-projektering", "Jämn ljudtäckning", "Lägre nivå per högtalare"] },
+    { "eyebrow": "Styrning", "title": "28 zoner styrs separat", "text": "Varje ljudzon kan hanteras separat från app och följa tidsschema. Spellista, tempo och volym kan anpassas efter hur anläggningen används under dagen.", "bullets": ["Appstyrning", "Tidsschema", "Separata spellistor och volymer"] },
+    { "eyebrow": "Konferens", "title": "Vikväggar ändrar hur ljudet arbetar", "text": "Fyra mindre konferensrum fungerar separat när vikväggarna är stängda. När väggar öppnas kan ljudet slås ihop till större rum.", "bullets": ["Fyra mindre rum", "Ett större konferensrum", "SLS-hörslinga i stora rummet"] },
+    { "eyebrow": "Nätverk", "title": "Dante kopplar ihop byggnaderna", "text": "Dante transporterar digitalt ljud mellan husen över nätverket så ljud från en plats kan skickas vidare till valda ljudzoner i hotellet.", "bullets": ["Digitalt ljud över nätverk", "Ljud mellan byggnader", "Flexibel distribution"] }
+  ],
+  "gallery": [{ "src": "/assets/fjallanlaggning-vinterkvall.webp", "alt": "Hundfjällshotellet i Sälen med pendlade högtalare och ljudinstallation från AVAB" }],
+  "faq": [
+    { "question": "Vad levererade AVAB till Hundfjällshotellet och Hundfjällscenter?", "answer": "AVAB projekterade ljudspridningen och installerade 494 högtalare i 28 appstyrda ljudzoner samt Dante, konferensteknik, trådlösa mikrofoner och SLS-hörslinga." },
+    { "question": "Varför installerades så många högtalare?", "answer": "Många noggrant placerade högtalare skapar en jämn ljudmatta utan starka punkter och volymdippar. Varje högtalare kan då arbeta på lägre nivå." },
+    { "question": "Hur styrs de 28 ljudzonerna?", "answer": "Varje zon kan styras separat från app. Spellista, tempo och volym kan följa ett tidsschema och anpassas efter verksamheten under dagen." },
+    { "question": "Hur fungerar konferensrummen med vikväggar?", "answer": "De fyra mindre rummen fungerar separat när vikväggarna är stängda. När en vägg öppnas slås ljudet ihop och presentationens ljud spelas i alla åtta högtalare i det större rummet." },
+    { "question": "Hur kopplas Hundfjällscenter och hotellet ihop?", "answer": "Ett Dante-system transporterar digitalt ljud mellan husen över nätverket. En trubadur vid Mondo kan därför skickas vidare till valda ljudzoner i hotellet." },
+    { "question": "Finns hörslinga i konferensanläggningen?", "answer": "Det stora konferensrummet är utrustat med en SLS-hörslinga. De fyra mindre konferensrummen har ingen hörslinga." }
+  ],
+  "relatedServices": [
+    { "label": "Ljudsystem", "href": "/tjanster/ljudsystem/" },
+    { "label": "Hörslinga", "href": "/tjanster/horslinga/" },
+    { "label": "Bakgrundsmusik", "href": "/tjanster/bakgrundsmusik/" },
+    { "label": "Projektering", "href": "/tjanster/projektering/" }
+  ],
+  "relatedReferences": ["/referenser/claessons-restaurang-konferens/", "/referenser/lesjofors-ab/"],
+  "seo": { "title": "Hundfjällshotellet Sälen – 494 högtalare i 28 ljudzoner | AVAB", "description": "Referensprojekt: AVAB projekterade ljudspridningen med EASE och installerade 494 högtalare i 28 appstyrda ljudzoner, Dante, konferensteknik och SLS-hörslinga i Hundfjällshotellet och Hundfjällscenter i Sälen.", "noindex": false }
+}

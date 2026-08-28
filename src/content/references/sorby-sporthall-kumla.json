@@ -1,0 +1,55 @@
+{
+  "pageType": "reference",
+  "status": "published",
+  "slug": "/referenser/sorby-sporthall-kumla/",
+  "title": "Sörby idrottshall – flexibel styrning av ljud, mikrofoner och LED-vägg",
+  "shortTitle": "Sörby idrottshall, Kumla",
+  "eyebrow": "Referens · Sporthall",
+  "summary": "AVAB levererade Crestronstyrning, Bose ControlSpace EX-1280, Dante-anslutna Bluetooth-mottagare, trådlösa mikrofoner och styrning av LED-vägg i Sörby idrottshall.",
+  "featured": false,
+  "publishedDate": "2026-07-08",
+  "updatedDate": "2026-07-08",
+  "customer": { "publicDisplay": "Sörby idrottshall", "publicationApproved": true },
+  "location": { "publicDisplay": "Kumla" },
+  "environments": ["sporthall", "skola"],
+  "technologies": ["ljud", "bild", "styrsystem", "crestron", "dsp", "dante", "mikrofoner", "ledvagg", "taluppfattbarhet"],
+  "role": "Installation av styrt ljud- och presentationssystem",
+  "scope": "Crestronstyrning, Bose ControlSpace EX-1280, Dante-anslutna Bluetooth-mottagare, trådlösa mikrofoner och styrning av LED-vägg för delad hall och helsal.",
+  "needs": "Idrottshallen behövde ett system som fungerar både när ridåväggen delar hallen i separata ytor och när hela lokalen används som en gemensam helsal.",
+  "responsibility": "AVAB levererade styrning, ljudprocessning, Bluetooth över Dante, trådlösa mikrofoner och integration av LED-vägg så systemet kan följa hallens olika användningslägen.",
+  "result": "Ljud, mikrofoner och presentation kan användas separat i halvsalar eller gemensamt i helsal, med nätverksbaserad ljuddistribution och lokal styrning.",
+  "facts": [
+    { "label": "Plats", "value": "Kumla" },
+    { "label": "Miljö", "value": "Delbar idrottshall" },
+    { "label": "DSP", "value": "Bose ControlSpace EX-1280" },
+    { "label": "Styrsystem", "value": "Crestron" },
+    { "label": "Distribution", "value": "Dante-Bluetooth" }
+  ],
+  "heroImage": { "src": "/assets/sporthall-interior-linjer.webp", "alt": "Sörby idrottshall i Kumla med styrt ljud, mikrofoner och LED-vägg från AVAB" },
+  "scopeItems": [
+    { "label": "01", "title": "Halvsal och helsal", "text": "När ridåväggen är nere kan hallsidorna användas separat. När väggen öppnas hanteras ljud och mikrofoner gemensamt över hela hallen." },
+    { "label": "02", "title": "Dante-Bluetooth", "text": "Bluetooth-mottagare ansluts via Dante så digitalt ljud kan skickas till rätt zon beroende på hur hallen används." },
+    { "label": "03", "title": "Trådlösa mikrofoner", "text": "Mikrofonantenner ute i hallen förbättrar mottagningen jämfört med om all radiohantering skulle sitta inne i teknikracket." },
+    { "label": "04", "title": "LED-vägg", "text": "LED-väggen ingår i den styrda presentationslösningen och kan hanteras tillsammans med övrig teknik." }
+  ],
+  "detailSections": [
+    { "eyebrow": "Flexibilitet", "title": "Systemet följer ridåväggen", "text": "När hallen delas fungerar sidorna separat. När ridåväggen öppnas kan ljud och mikrofoner arbeta som ett gemensamt system över hela lokalen.", "bullets": ["Separat halvsalsläge", "Gemensamt helsalsläge", "Ljud och mikrofoner följer användningen"] },
+    { "eyebrow": "Nätverk", "title": "Bluetooth över Dante", "text": "Dante gör det möjligt att skicka ljud digitalt i nätverket och styra vilken zon ljudet ska hamna i, vilket passar en hall med flera användningslägen.", "bullets": ["Digital ljudtransport", "Zonval via nätverk", "Flexibel Bluetooth-källa"] },
+    { "eyebrow": "Radio", "title": "Antenner ute i hallen ger bättre mottagning", "text": "Mikrofonantenner placerade ute i hallen minskar risken för tappad radiosignal när mikrofonerna används på olika platser i lokalen.", "bullets": ["Bättre täckning", "Mindre beroende av rackplacering", "Stabilare trådlösa mikrofoner"] }
+  ],
+  "gallery": [{ "src": "/assets/sporthall-interior-linjer.webp", "alt": "Sörby idrottshall i Kumla med styrt ljud, mikrofoner och LED-vägg från AVAB" }],
+  "faq": [
+    { "question": "Vad levererade AVAB till Sörby idrottshall?", "answer": "AVAB levererade Crestronstyrning, ljudstyrning, Bose ControlSpace EX-1280, Dante-anslutna Bluetooth-mottagare, trådlösa mikrofoner och styrning av LED-vägg." },
+    { "question": "Hur fungerar ljudet när hallen delas med ridåvägg?", "answer": "När ridåväggen är nere kan hallsidorna användas separat. När väggen är uppfälld hanteras hallen som en helsal där ljud och mikrofoner fungerar gemensamt." },
+    { "question": "Varför används Dante för Bluetooth i en sporthall?", "answer": "Dante gör det möjligt att skicka ljud digitalt i nätverket och styra vilken zon ljudet ska hamna i. Det passar bra i hallar där flera ytor och användningslägen ska hanteras." },
+    { "question": "Varför monteras mikrofonantenner ute i hallen?", "answer": "Antenner placerade ute i hallen ger bättre mottagning än om allt sitter inne i teknikracket. Det minskar risken för tappad radiosignal när mikrofonerna används på olika platser i lokalen." }
+  ],
+  "relatedServices": [
+    { "label": "Ljudsystem", "href": "/tjanster/ljudsystem/" },
+    { "label": "Mikrofoner", "href": "/tjanster/mikrofoner/" },
+    { "label": "Styrsystem & integration", "href": "/tjanster/styrsystem-integration/" },
+    { "label": "Taluppfattbarhet", "href": "/tjanster/taluppfattbarhet/" }
+  ],
+  "relatedReferences": ["/referenser/ekhagsskolan-dals-langed/", "/referenser/sannerudshallen-kil/"],
+  "seo": { "title": "Sörby idrottshall, Kumla – Crestron, Dante och ljudsystem | AVAB", "description": "AVAB levererade styrning, ljud, Dante-Bluetooth, trådlösa mikrofoner och LED-vägg till Sörby idrottshall. Systemet fungerar både som delad hall och helsal.", "noindex": false }
+}

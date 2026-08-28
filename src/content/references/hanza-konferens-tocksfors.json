@@ -1,0 +1,54 @@
+{
+  "pageType": "reference",
+  "status": "published",
+  "slug": "/referenser/hanza-konferens-tocksfors/",
+  "title": "Hanza Mechanics Töcksfors – konferensrum som är lätta att boka, starta och koppla upp",
+  "shortTitle": "Hanza Mechanics, Töcksfors",
+  "eyebrow": "Referens · Konferens",
+  "summary": "AVAB byggde två nya konferensrum hos Hanza Mechanics med 85-tums Samsung PRO, Crestron AirMedia 3, Teams/BYOD, Sennheiser-videobar och rumsbokningspaneler utanför fyra rum.",
+  "featured": false,
+  "publishedDate": "2026-07-08",
+  "updatedDate": "2026-07-08",
+  "customer": { "publicDisplay": "Hanza Mechanics", "publicationApproved": true },
+  "location": { "publicDisplay": "Töcksfors" },
+  "environments": ["kontor-konferens", "industri"],
+  "technologies": ["bild", "styrsystem", "crestron", "mikrofoner", "konferens"],
+  "role": "Installation av konferensteknik och rumsbokning",
+  "scope": "Två nya konferensrum med 85-tums Samsung PRO-displayer, Crestron AirMedia 3, USB-C-donglar, Teams/BYOD, Sennheiser TeamConnect Videobar Medium och bokningspaneler utanför fyra konferensrum.",
+  "needs": "Hanza behövde konferensrum som snabbt kan startas, fungerar både med fasta Teams-flöden och användarens egen dator samt gör det tydligt utanför rummen om de är lediga eller bokade.",
+  "responsibility": "AVAB byggde två nya konferensrum och installerade bild, trådlös presentation, Teams/BYOD-funktioner, videobar samt Crestron-paneler för rumsbokning.",
+  "result": "Användare kan presentera trådlöst, ansluta egen dator vid behov och se bokningsstatus utanför konferensrummen i ett mer enhetligt mötesflöde.",
+  "facts": [
+    { "label": "Plats", "value": "Töcksfors" },
+    { "label": "Nya konferensrum", "value": "2 st" },
+    { "label": "Displayer", "value": "85 tum · Samsung PRO" },
+    { "label": "Presentation", "value": "Crestron AirMedia 3" },
+    { "label": "Bokningspaneler", "value": "Utanför 4 rum" }
+  ],
+  "heroImage": { "src": "/assets/konferensrum-stor-skarm-bord.webp", "alt": "Stort konferensrum hos Hanza Mechanics med Samsung-display och Sennheiser TeamConnect Videobar" },
+  "scopeItems": [
+    { "label": "01", "title": "Trådlös presentation", "text": "Varje rum har Crestron AirMedia 3 och USB-C-donglar så användaren kan presentera utan att leta efter HDMI-kabel eller adapter." },
+    { "label": "02", "title": "Teams och BYOD", "text": "Det lilla rummet använder Crestron Flex MTR/BYOD så både Teams och användarens egen dator kan använda rummets teknik." },
+    { "label": "03", "title": "Videobar", "text": "Det stora rummet använder Sennheiser TeamConnect Videobar Medium som samlar kamera, mikrofon och högtalare i en enhet." },
+    { "label": "04", "title": "Rumsbokning", "text": "Crestron-paneler utanför fyra konferensrum visar bokningsstatus och hjälper användaren hitta rätt rum och rätt tid." }
+  ],
+  "detailSections": [
+    { "eyebrow": "Presentation", "title": "Anslut datorn och börja presentera", "text": "Crestron AirMedia 3 och USB-C-donglar ger ett enkelt trådlöst presentationsflöde utan beroende av separata adaptrar och HDMI-kablar.", "bullets": ["Crestron AirMedia 3", "USB-C-donglar", "Trådlös presentation"] },
+    { "eyebrow": "Mötesrum", "title": "Två rum med olika mötesbehov", "text": "Det lilla rummet byggdes med Crestron Flex MTR/BYOD medan det stora rummet fick Sennheiser TeamConnect Videobar Medium för kamera, mikrofon och högtalare.", "bullets": ["Crestron Flex MTR/BYOD", "Sennheiser TeamConnect Videobar Medium", "85-tums Samsung PRO"] },
+    { "eyebrow": "Bokning", "title": "Status syns redan utanför rummet", "text": "Rumsbokningspanelerna sitter utanför konferensrummen och visar om rummet är ledigt eller bokat samt vilka tider som gäller.", "bullets": ["Status utanför rummet", "Tydliga bokningstider", "Paneler utanför fyra rum"] }
+  ],
+  "gallery": [{ "src": "/assets/konferensrum-stor-skarm-bord.webp", "alt": "Stort konferensrum hos Hanza Mechanics med Samsung-display och Sennheiser TeamConnect Videobar" }],
+  "faq": [
+    { "question": "Vad levererade AVAB till Hanza Mechanics i Töcksfors?", "answer": "AVAB byggde två nya konferensrum med 85-tums Samsung PRO-displayer, Crestron AirMedia 3 för trådlös presentation, USB-C-donglar, Crestron Flex MTR/BYOD i det lilla rummet, Sennheiser TeamConnect Videobar Medium i det stora rummet samt Crestron rumsbokningspaneler utanför fyra konferensrum." },
+    { "question": "Hur gör användaren en snabb presentation i rummen?", "answer": "Varje rum har Crestron AirMedia 3 och två USB-C-donglar. Användaren kan ansluta dongeln till datorn och presentera trådlöst utan att leta HDMI-kabel eller adapter." },
+    { "question": "Vad är ett BYOD-mötesrum?", "answer": "BYOD betyder Bring Your Own Device. Användaren kan ta med sin egen dator och använda rummets kamera, ljud och display i valfri mötestjänst." },
+    { "question": "Vad gör rumsbokningspanelerna?", "answer": "Rumsbokningspanelerna sitter utanför konferensrummen och visar om rummet är ledigt eller bokat, vilka tider som gäller och gör det enklare att hitta rätt mötesrum." },
+    { "question": "Vilken skillnad är det mellan de två rummen?", "answer": "Det lilla rummet byggdes med Crestron Flex MTR/BYOD. Det stora rummet fick Sennheiser TeamConnect Videobar Medium för kamera, mikrofon och högtalare i en samlad enhet." }
+  ],
+  "relatedServices": [
+    { "label": "Mikrofoner", "href": "/tjanster/mikrofoner/" },
+    { "label": "Styrsystem & integration", "href": "/tjanster/styrsystem-integration/" }
+  ],
+  "relatedReferences": ["/referenser/lesjofors-ab/", "/referenser/claessons-restaurang-konferens/"],
+  "seo": { "title": "Hanza Mechanics Töcksfors – konferensrum med Teams och rumsbokning | AVAB", "description": "Referensprojekt: AVAB byggde två nya konferensrum hos Hanza Mechanics i Töcksfors med 85-tums Samsung PRO, Crestron AirMedia, Teams/BYOD, Sennheiser-videobar och rumsbokningspaneler.", "noindex": false }
+}

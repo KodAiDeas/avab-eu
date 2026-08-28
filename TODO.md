@@ -3,7 +3,7 @@
 > **Projektets enda levande att-göra-lista.**
 > Här samlas uppgifter, idéer som ska följas upp, blockerare och beslut som annars riskerar att glömmas bort.
 
-**Senast uppdaterad:** 2026-08-15  
+**Senast uppdaterad:** 2026-08-18  
 **Tidigare fil:** `src/docs/att-gora-lista.md`
 
 ---
@@ -19,7 +19,7 @@ När en AI arbetar i detta repo ska `TODO.md` behandlas som **single source of t
 5. Flytta inte en punkt till **Klart** förrän den faktiskt är verifierad som färdig.
 6. Ta aldrig bort en öppen punkt bara för att den verkar gammal. Markera i stället **Verifiera**, **Blockerad** eller be om beslut.
 7. När en punkt är klar: bocka av den, lägg till slutdatum och flytta den till **Klart**.
-8. **Beslut tagna** ska bevaras. Kontrollera dem innan en gammal fråga tas upp igen.
+8. **Beslut tagna** ska bevaras. Kontrollera dem innan samma fråga tas upp igen.
 9. Om en uppgift hör ihop med en fil, branch, PR eller issue: lägg till referensen i samma punkt.
 10. Håll TODO:n kortfattad. Större specifikationer och arbetsplaner ska ligga i egna dokument och länkas härifrån.
 11. Uppdatera alltid **Senast uppdaterad** när innehållet ändras.
@@ -48,19 +48,27 @@ AI:n ansvarar då för ID, datum, placering, dubblettkontroll och struktur.
 
 ## Näst på tur
 
+### Aktuellt fokus – AI/content architecture
+
+- [ ] **AVAB-013 · P1 · Bygg AI-baserat innehållssystem och dokumentationsarkitektur** — Genomför projektet i `docs/projects/ai-content-system/README.md`: definiera sidtyper, centralisera återkommande layout i komponenter/templates, skapa content models/schemas, standardisera AI-workflows och införa PR/validerings-guardrails så att kunden säkert kan skapa standardsidor via ChatGPT/Claude utan VS Code. Referenser används som första pilot.  
+  _Tillagd: 2026-08-17 · Branch: `agent/ai-content-system` · Status: Fas 0–6 genomförda som baseline. Fas 7 pågår för Referenser. 6 av 14 aktiva referenser är tekniskt migrerade, men fortsatt massmigrering är pausad. Live-sidan `https://test2.avab.eu/referenser/minnebergsskolan-arvika/` är nu godkänd visuell source of truth. Fas 7A ska först återskapa den designen i den gemensamma structured-content-arkitekturen, därefter testa minst två representativa referenser. Först sedan får resterande åtta migreras. Se `docs/projects/ai-content-system/phase-7-reference-migration.md` och `phase-7a-reference-design-reconciliation.md`._
+
+- [ ] **AVAB-015 · P2 · Lägg till unik preview per PR** — Gör mobil/chat-granskningen komplett genom att ge varje relevant PR en unik preview-URL utan att deploya över `test2.avab.eu`. Preview ska skapas automatiskt för PR, vara tydligt separerad från production/main och kunna tas bort efter stängd PR.  
+  _Tillagd: 2026-08-17 · Källa: Fas 6 kundworkflow · Status: UX-/infrastrukturförbättring; grön CI finns redan men ersätter inte visuell preview._
+
 ### Aktuellt fokus – mobil
 
-- [ ] **AVAB-009 · P1 · Verifiera mobil baseline och deployment-paritet** — Fastställ vilken branch/commit som är deployad på `test2.avab.eu` och verifiera att den matchar den kod som ska inventeras. Skärmbildens mobilheader med hamburgermeny matchar inte nuvarande `SiteHeader.astro` på `main`, så versionsskillnaden ska redas ut innan massändringar görs. Följ fas 0–1 i `src/docs/AVAB-mobilinventering.md`.  
+- [ ] **AVAB-009 · P1 · Verifiera mobil baseline och deployment-paritet** — Fastställ vilken branch/commit som är deployad på `test2.avab.eu` och verifiera att den matchar den kod som ska inventeras. Skärmbildens mobilheader med hamburgermeny matchar inte nuvarande `SiteHeader.astro` på `main`, så versionsskillnaden ska redas ut innan massändringar görs. Följ Fas 0–1 i `docs/workflows/mobile-qa.md`.  
   _Tillagd: 2026-08-15 · Status: nästa steg._
 
-- [ ] **AVAB-010 · P1 · Full mobilinventering och globala mobilfixar** — Inventera samtliga aktiva publika routes enligt `src/docs/AVAB-mobilinventering.md` och bedöm dem mot `src/docs/AVAB-standard-mobil.md`. Prioritera globala rotorsaker före sidspecifika patchar. Första kända fokus: hero-CTA, knapphöjd/textbrytning, CTA-hierarki, sticky header, overflow, grids, bilder, formulär och innehåll som döljs på mobil. Implementera P0/P1-fixar efter att inventeringen visar rätt scope.  
+- [ ] **AVAB-010 · P1 · Full mobilinventering och globala mobilfixar** — Inventera samtliga aktiva publika routes enligt `docs/workflows/mobile-qa.md` och bedöm dem mot `docs/standards/global/mobile.md`. Prioritera globala rotorsaker före sidspecifika patchar. Första kända fokus: hero-CTA, knapphöjd/textbrytning, CTA-hierarki, sticky header, overflow, grids, bilder, formulär och innehåll som döljs på mobil. Implementera P0/P1-fixar efter att inventeringen visar rätt scope.  
   _Tillagd: 2026-08-15 · Status: startar efter AVAB-009._
 
 - [ ] **AVAB-011 · P1 · Mobil regression och godkännande** — Efter mobilfixarna: verifiera samtliga aktiva routes på 360/390/430/768 px och kör 320 px gränstest för overflow. Kontrollera header/meny, hero, CTA, kort, bilder, formulär, kalkylatorer och footer. Build ska passera och visuella kontroller måste vara genomförda innan arbetet markeras klart.  
   _Tillagd: 2026-08-15 · Status: startar efter AVAB-010._
 
-- [ ] **AVAB-012 · P1 · Normalisera kanonisk domän till `https://avab.eu/`** — Aktuell sporthallssida innehåller `https://www.avab.eu/` i canonical, Open Graph, schema och breadcrumbs. Inventera samtliga aktiva sidor och byt webbplatsens kanoniska/metadata-URL:er till `https://avab.eu/`; `www` ska endast vara alias/redirect. Kontrollera att inga interna länkar eller strukturerade data återintroducerar `www`.  
-  _Tillagd: 2026-08-15 · Status: konkret avvikelse verifierad på sporthallssidan; scope för resten av sajten behöver inventeras._
+- [ ] **AVAB-012 · P1 · Normalisera kanonisk domän till `https://avab.eu/`** — Aktiva sidor innehåller fortfarande förekomster av `https://www.avab.eu/` i canonical, Open Graph, schema och breadcrumbs. Inventera samtliga aktiva sidor och byt webbplatsens kanoniska/metadata-URL:er till `https://avab.eu/`; `www` ska endast vara alias/redirect. Kontrollera att inga interna länkar eller strukturerade data återintroducerar `www`.  
+  _Tillagd: 2026-08-15 · Status: konkret avvikelse verifierad på flera representativa sidor; scope för resten av sajten behöver inventeras._
 
 ### Tidigare prioriterat
 
@@ -72,6 +80,9 @@ AI:n ansvarar då för ID, datum, placering, dubblettkontroll och struktur.
 
 - [ ] **AVAB-003 · P1 · Oanvänd bild** — `kopcentrum-fasad-kvall-bred.webp` hade 0 referenser i tidigare inventering. Verifiera aktuellt läge och besluta därefter om bilden ska raderas eller tas i bruk.  
   _Tillagd: 2026-08-03 · Status: behöver verifieras._
+
+- [ ] **AVAB-014 · P1 · Verifiera och åtgärda dependency-sårbarheter** — PR-buildens `npm install` rapporterade 7 vulnerabilities (1 low, 6 high). Kör `npm audit`, identifiera vilka paket/transitiva beroenden som berörs och åtgärda utan att automatiskt använda breaking `--force`-uppgraderingar. Build och visuell regression ska göras efter dependency-ändringar.  
+  _Tillagd: 2026-08-17 · Källa: GitHub Actions `Validate pull request`, run 4 · Status: behöver säkerhetsinventering._
 
 ---
 
@@ -104,7 +115,8 @@ _Inga punkter just nu._
 
 ## Blockerat
 
-_Inga verifierade blockerare just nu._
+- **Fas 7A Referenser – design gate:** fortsatt massmigrering är pausad tills structured Minneberg följer den godkända live-designen på desktop och mobil och minst två ytterligare referenser fungerar med samma renderer utan specialhack.
+- **Fas 7B Referenser – återstående 8 sidor:** flera legacy-sidor refererar projektspecifika bildfilnamn som inte finns i dagens `public/assets`. Exakt bildmappning ska spåras eller visuellt verifieras innan de migreras; AI får inte välja en liknande bild på chans.
 
 ---
 
@@ -118,7 +130,15 @@ _Inga öppna beslut just nu._
 
 Dessa beslut ska kontrolleras innan samma fråga öppnas på nytt:
 
-- Mobilförbättringar ska följa `src/docs/AVAB-standard-mobil.md` och arbetsflödet i `src/docs/AVAB-mobilinventering.md`.
+- GitHub ska vara gemensam sanningskälla för AVAB:s kod, AI-regler, standarder och workflows.
+- För Referenser under Fas 7 är `https://test2.avab.eu/referenser/minnebergsskolan-arvika/` visuell source of truth; `agent/ai-content-system` är teknisk/arkitekturell source of truth. De ska förenas innan fortsatt massmigrering.
+- Chat/mobil är ett godkänt arbetsgränssnitt för normalt content-arbete när sidtypen har implementerad structured-content-modell; VS Code är inte ett krav. Samma branch-, scope-, validerings- och PR-regler gäller ändå.
+- AI-genererade sidändringar ska normalt ske via separat branch och PR, inte direkt mot `main`.
+- Innehåll och presentation ska separeras där det är praktiskt; återkommande sidlayout ska ligga i delade komponenter/templates och inte kopieras mellan sidor.
+- AI-page-authoring ska vara ett gemensamt router-workflow för hela sajten; sidtypsspecifika workflows ligger ovanpå samma fakta-, scope-, metadata-, validerings- och PR-regler.
+- Att en sidtyp har ett workflow betyder inte att dess content schema/template redan är implementerat. Faktisk kod är sanningskälla; AI får inte fylla ett arkitekturgap genom att kopiera en stor legacy-sida som normal lösning.
+- Grön CI/build ersätter inte visuell browsergranskning; PR-preview är en separat förbättring tills den är implementerad.
+- Mobilförbättringar ska följa `docs/standards/global/mobile.md` och arbetsflödet i `docs/workflows/mobile-qa.md`.
 - Återkommande mobilproblem ska lösas globalt/delat före sidspecifika patchar. Viktigt innehåll ska inte döljas enbart för att lösa en mobil layout.
 - Bilder i `public/assets/` ligger platt utan undermappar; de ska bara vara korrekt omdöpta.
 - Använd generiska motivnamn i filnamn. Ortsnamn hör hemma i alt-text.
